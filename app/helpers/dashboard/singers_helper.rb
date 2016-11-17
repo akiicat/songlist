@@ -1,2 +1,0 @@
-module Dashboard::SingersHelper
-end
