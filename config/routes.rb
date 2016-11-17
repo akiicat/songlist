@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :home do
     resources :playlists
-    resources :songlists
+    resources :songs
   end
   namespace :dashboard do
     resources :playlists

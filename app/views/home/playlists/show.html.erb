@@ -1,1 +1,32 @@
-<%= @playlist.to_json %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @playlist.video_url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @playlist.title %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @playlist.date %>
+</p>
+
+<% @playlist.songlists.each do |songlist| %>
+  <p>
+    <%= songlist.time %>
+    <%  song = songlist.song %>
+    <%= song.singer.name if song.singer %> /
+    <%= song.singer.name_translation if song.singer %> -
+    <%= link_to song.title, home_song_path(song) %> /
+    <%= song.title_translation %> (
+    <%= song.composer.name if song.composer %> /
+    <%= song.composer.name_translation if song.composer %>
+    <%= song.description %> )
+  </p>
+<% end %>
+
+<%= link_to 'Back', home_playlists_path %>

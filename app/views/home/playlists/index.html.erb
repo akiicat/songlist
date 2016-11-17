@@ -1,3 +1,26 @@
-<% @playlists.each do |playlist| %>
-  <%= link_to playlist.video_url, homes_playlist_path(playlist) %>
-<% end %>
+<p id="notice"><%= notice %></p>
+
+<h1>Playlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Video url</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= playlist.video_url %></td>
+        <td><%= playlist.title %></td>
+        <td><%= playlist.date %></td>
+        <td><%= link_to 'Show', home_playlist_path(playlist) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

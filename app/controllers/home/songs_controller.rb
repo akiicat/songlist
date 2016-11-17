@@ -1,4 +1,4 @@
-class Home::SonglistsController < Home::ApplicationController
+class Home::SongsController < Home::ApplicationController
   def index
     @songs = Song.all
   end

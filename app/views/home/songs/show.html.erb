@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Singer:</strong>
+  <%= link_to @song.singer.name, dashboard_singer_path(@song.singer) if @song.singer %>
+</p>
+
+<p>
+  <strong>Composer:</strong>
+  <%= link_to @song.composer.name, dashboard_song_path(@song.composer) if @song.composer %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Title translation:</strong>
+  <%= @song.title_translation %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
+
+<p>
+  <strong>Lyric url:</strong>
+  <%= @song.lyric_url %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @song.video_url %>
+</p>
+
+<% @song.playlists.each do |playlist| %>
+  <p>
+    <%= playlist.title %> |
+    <%= playlist.date %> |
+    <%= playlist.video_url %> |
+    <%= link_to 'show', home_playlist_path(playlist) %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', home_songs_path %>
