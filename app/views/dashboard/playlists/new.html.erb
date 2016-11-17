@@ -1,0 +1,7 @@
+<h1>New Playlist</h1>
+
+<%= form_for(@playlist, url: dashboard_playlists_path, method: :post) do |f| %>
+  <%= render 'form', playlist: @playlist, f: f %>
+<% end %>
+
+<%= link_to 'Back', dashboard_playlists_path %>

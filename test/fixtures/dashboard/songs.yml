@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  singer: one
+  composer: one
+  title: MyString
+  title_translation: MyString
+  description: MyString
+  lyric_url: MyString
+  video_url: MyString
+
+two:
+  singer: two
+  composer: two
+  title: MyString
+  title_translation: MyString
+  description: MyString
+  lyric_url: MyString
+  video_url: MyString

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Singers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Name translation</th>
+      <th>Nametile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @singers.each do |singer| %>
+      <tr>
+        <td><%= singer.name %></td>
+        <td><%= singer.name_translation %></td>
+        <td><%= link_to 'Show', dashboard_singer_path(singer) %></td>
+        <td><%= link_to 'Edit', edit_dashboard_singer_path(singer) %></td>
+        <td><%= link_to 'Destroy', dashboard_singer_path(singer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Singer', new_dashboard_singer_path %>

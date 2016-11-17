@@ -1,0 +1,30 @@
+<% if songlist.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(songlist.errors.count, "error") %> prohibited this songlist from being saved:</h2>
+
+    <ul>
+    <% songlist.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :playlist_id %>
+  <%= f.collection_select :playlist_id, Playlist.all, :id, :title, prompt: true %>
+</div>
+
+<div class="field">
+  <%= f.label :song_id %>
+  <%= f.collection_select :song_id, Song.all, :id, :title, prompt: true %>
+</div>
+
+<div class="field">
+  <%= f.label :time %>
+  <%= f.time_select :time, include_seconds: true %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>

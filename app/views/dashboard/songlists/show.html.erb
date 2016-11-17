@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Playlist:</strong>
+  <%= @songlist.playlist.title if @songlist.playlist %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @songlist.song.title if @songlist.song %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @songlist.time %>
+</p>
+
+<%= link_to 'Edit', edit_dashboard_songlist_path(@songlist) %> |
+<%= link_to 'Back', dashboard_songlists_path %>

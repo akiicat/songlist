@@ -1,0 +1,25 @@
+<% if singer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(singer.errors.count, "error") %> prohibited this singer from being saved:</h2>
+
+    <ul>
+    <% singer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :name_translation %>
+  <%= f.text_field :name_translation %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>

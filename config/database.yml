@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  pool: 5
+  username: akii
+  password: <%= ENV['PG_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: leggy_dev
+
+test:
+  <<: *default
+  database: leggy_test
+
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] %>
+  # pool: 5
+  # url: <%= ENV['DATABASE_URL'] %>

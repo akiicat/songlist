@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @singer.name %>
+</p>
+
+<p>
+  <strong>Name translation:</strong>
+  <%= @singer.name_translation %>
+</p>
+
+<% @singer.songs.each do |song| %>
+  <p><%= link_to song.title, dashboard_song_path(song) %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_dashboard_singer_path(@singer) %> |
+<%= link_to 'Back', dashboard_singers_path %>

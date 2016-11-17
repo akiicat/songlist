@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  playlist: one
+  song: one
+  time: 2016-11-16 03:35:49
+
+two:
+  playlist: two
+  song: two
+  time: 2016-11-16 03:35:49

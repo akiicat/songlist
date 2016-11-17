@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Playlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Video url</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= playlist.video_url %></td>
+        <td><%= playlist.title %></td>
+        <td><%= link_to 'Show', dashboard_playlist_path(playlist) %></td>
+        <td><%= link_to 'Edit', edit_dashboard_playlist_path(playlist) %></td>
+        <td><%= link_to 'Destroy', dashboard_playlist_path(playlist), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dashboard Playlist', new_dashboard_playlist_path(@playlist) %>

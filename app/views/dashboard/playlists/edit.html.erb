@@ -1,0 +1,8 @@
+<h1>Editing Dashboard Playlist</h1>
+
+<%= form_for(@playlist, url: dashboard_playlist_path(@playlist), method: :patch) do |f| %>
+  <%= render 'form', playlist: @playlist, f: f %>
+<% end %>
+
+<%= link_to 'Show', dashboard_playlist_path(@playlist) %> |
+<%= link_to 'Back', dashboard_playlists_path %>
