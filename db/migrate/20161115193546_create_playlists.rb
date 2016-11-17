@@ -3,6 +3,7 @@ class CreatePlaylists < ActiveRecord::Migration[5.0]
     create_table :playlists, id: :uuid do |t|
       t.string :video_url
       t.string :title
+      t.date :date
 
       t.timestamps
     end

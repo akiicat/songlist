@@ -16,6 +16,7 @@
       <tr>
         <td><%= playlist.video_url %></td>
         <td><%= playlist.title %></td>
+        <td><%= playlist.date %></td>
         <td><%= link_to 'Show', dashboard_playlist_path(playlist) %></td>
         <td><%= link_to 'Edit', edit_dashboard_playlist_path(playlist) %></td>
         <td><%= link_to 'Destroy', dashboard_playlist_path(playlist), method: :delete, data: { confirm: 'Are you sure?' } %></td>
