@@ -22,12 +22,12 @@
 
 <div class="field">
   <%= f.label :streamed_at %>
-  <%= f.datetime_select :streamed_at %>
+  <%= f.datetime_select :streamed_at, include_seconds: true %>
 </div>
 
 <div class="field">
   <%= f.label :published_at %>
-  <%= f.datetime_select :published_at %>
+  <%= f.datetime_select :published_at, include_seconds: true %>
 </div>
 
 <div class="actions">
