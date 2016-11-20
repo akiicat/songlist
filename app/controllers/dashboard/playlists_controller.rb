@@ -69,6 +69,6 @@ class Dashboard::PlaylistsController < Dashboard::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playlist_params
-      params.require(:playlist).permit(:video_url, :title, :date)
+      params.require(:playlist).permit(:video_url, :title, :streamed_at, :published_at)
     end
 end

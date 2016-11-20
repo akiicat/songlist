@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20161120125352) do
   create_table "playlists", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "video_url"
     t.string   "title"
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "streamed_at"
+    t.datetime "published_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "singers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

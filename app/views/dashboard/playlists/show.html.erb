@@ -11,8 +11,13 @@
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @playlist.date %>
+  <strong>streamed_at:</strong>
+  <%= @playlist.streamed_at %>
+</p>
+
+<p>
+  <strong>published_at:</strong>
+  <%= @playlist.published_at %>
 </p>
 
 <%= link_to 'Edit', edit_dashboard_playlist_path(@playlist) %> |
