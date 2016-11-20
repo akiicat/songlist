@@ -3,6 +3,8 @@ class CreateSonglists < ActiveRecord::Migration[5.0]
     create_table :songlists, id: :uuid do |t|
       t.uuid :playlist_id, foreign_key: true
       t.uuid :song_id, foreign_key: true
+      t.uuid :prefix_id, foreign_key: true
+      t.uuid :suffix_id, foreign_key: true
       t.time :time
 
       t.timestamps

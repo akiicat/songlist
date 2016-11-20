@@ -8,6 +8,8 @@ class CreateSongs < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :lyric_url
       t.string :video_url
+      t.string :cover
+      t.string :feat
 
       t.timestamps
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115193549) do
+ActiveRecord::Schema.define(version: 20161120125352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,17 @@ ActiveRecord::Schema.define(version: 20161115193549) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "songinfos", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "songlists", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "playlist_id"
     t.uuid     "song_id"
+    t.uuid     "prefix_id"
+    t.uuid     "suffix_id"
     t.time     "time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -47,6 +55,8 @@ ActiveRecord::Schema.define(version: 20161115193549) do
     t.string   "description"
     t.string   "lyric_url"
     t.string   "video_url"
+    t.string   "cover"
+    t.string   "feat"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
