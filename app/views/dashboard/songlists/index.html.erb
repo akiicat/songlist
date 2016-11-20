@@ -8,6 +8,8 @@
       <th>Playlist</th>
       <th>Song</th>
       <th>Time</th>
+      <th>Prefix</th>
+      <th>Suffix</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +20,8 @@
         <td><%= songlist.playlist.title if songlist.playlist %></td>
         <td><%= songlist.song.title if songlist.song %></td>
         <td><%= songlist.time %></td>
+        <td><%= songlist.prefix.content if songlist.prefix %></td>
+        <td><%= songlist.suffix.content if songlist.suffix %></td>
         <td><%= link_to 'Show', dashboard_songlist_path(songlist) %></td>
         <td><%= link_to 'Edit', edit_dashboard_songlist_path(songlist) %></td>
         <td><%= link_to 'Destroy', dashboard_songlist_path(songlist), method: :delete, data: { confirm: 'Are you sure?' } %></td>

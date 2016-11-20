@@ -69,6 +69,6 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def songlist_params
-      params.require(:songlist).permit(:playlist_id, :song_id, :time)
+      params.require(:songlist).permit(:playlist_id, :song_id, :prefix_id, :suffix_id, :time)
     end
 end

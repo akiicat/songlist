@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :playlists
     resources :songlists
+    resources :songinfos
     resources :songs
     resources :singers
   end

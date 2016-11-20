@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>content:</strong>
+  <%= @songinfo.content %>
+</p>
+
+<%= link_to 'Edit', edit_dashboard_songinfo_path(@songinfo) %> |
+<%= link_to 'Back', dashboard_songinfos_path %>

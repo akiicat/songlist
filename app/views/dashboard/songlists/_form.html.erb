@@ -25,6 +25,16 @@
   <%= f.time_select :time, include_seconds: true %>
 </div>
 
+<div class="field">
+  <%= f.label :prefix_id %>
+  <%= f.collection_select :prefix_id, Songinfo.all, :id, :content, prompt: true %>
+</div>
+
+<div class="field">
+  <%= f.label :suffix_id %>
+  <%= f.collection_select :suffix_id, Songinfo.all, :id, :content, prompt: true %>
+</div>
+
 <div class="actions">
   <%= f.submit %>
 </div>

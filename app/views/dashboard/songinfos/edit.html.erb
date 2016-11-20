@@ -1,0 +1,8 @@
+<h1>Editing songinfo</h1>
+
+<%= form_for(@songinfo, url: dashboard_songinfo_path(@songinfo), method: :patch) do |f| %>
+  <%= render 'form', songinfo: @songinfo, f: f %>
+<% end %>
+
+<%= link_to 'Show', dashboard_songinfo_path(@songinfo) %> |
+<%= link_to 'Back', dashboard_songinfos_path %>
