@@ -19,7 +19,7 @@
       <tr>
         <td><%= songlist.playlist.title if songlist.playlist %></td>
         <td><%= songlist.song.title if songlist.song %></td>
-        <td><%= songlist.time %></td>
+        <td><%= songlist.marker %></td>
         <td><%= songlist.prefix.content if songlist.prefix %></td>
         <td><%= songlist.suffix.content if songlist.suffix %></td>
         <td><%= link_to 'Show', dashboard_songlist_path(songlist) %></td>

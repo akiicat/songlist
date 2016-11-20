@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20161120125352) do
     t.uuid     "song_id"
     t.uuid     "prefix_id"
     t.uuid     "suffix_id"
-    t.time     "time"
+    t.datetime "marker"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -25,14 +25,16 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
   # POST /dashboard/songlists.json
   def create
     @songlist = Songlist.new(songlist_params)
-
+    @songlists = Songlist.where(playlist: @songlist.playlist) if @songlist.playlist
     respond_to do |format|
       if @songlist.save
         format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully created.' }
         format.json { render :show, status: :created, location: @songlist }
+        format.js { render :file => "dashboard/songlists/form/_form_success.js.erb" }
       else
         format.html { render :new }
         format.json { render json: @songlist.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -69,6 +71,6 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def songlist_params
-      params.require(:songlist).permit(:playlist_id, :song_id, :prefix_id, :suffix_id, :time)
+      params.require(:songlist).permit(:playlist_id, :song_id, :prefix_id, :suffix_id, :marker)
     end
 end

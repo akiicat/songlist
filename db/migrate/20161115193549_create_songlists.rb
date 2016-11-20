@@ -5,7 +5,7 @@ class CreateSonglists < ActiveRecord::Migration[5.0]
       t.uuid :song_id, foreign_key: true
       t.uuid :prefix_id, foreign_key: true
       t.uuid :suffix_id, foreign_key: true
-      t.time :time
+      t.datetime :marker
 
       t.timestamps
     end
