@@ -70,7 +70,7 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
     end
 
     def set_songlists
-      @songlists = Songlist.where(playlist: @songlist.playlist).includes(:prefix, :suffix) if @songlist.playlist
+      @songlists = Songlist.where(playlist: @songlist.playlist).includes(:prefix, :suffix, :song) if @songlist.playlist
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
