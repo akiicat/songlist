@@ -3,5 +3,6 @@
   <%= songlist.marker.strftime("%H:%M:%S") %>
   <%= songlist.prefix.content if songlist.prefix %>
   <%= songlist.suffix.content if songlist.suffix %>
+  <%= link_to 'Destroy', dashboard_songlist_path(songlist), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
   <br/>
 <% end %>

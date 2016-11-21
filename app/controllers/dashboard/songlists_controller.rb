@@ -1,5 +1,6 @@
 class Dashboard::SonglistsController < Dashboard::ApplicationController
   before_action :set_songlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_songlists, only: [:create, :destroy]
 
   # GET /dashboard/songlists
   # GET /dashboard/songlists.json
@@ -25,7 +26,6 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
   # POST /dashboard/songlists.json
   def create
     @songlist = Songlist.new(songlist_params)
-    @songlists = Songlist.where(playlist: @songlist.playlist).includes(:prefix, :suffix) if @songlist.playlist
     respond_to do |format|
       if @songlist.save
         format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully created.' }
@@ -59,6 +59,7 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
     respond_to do |format|
       format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully destroyed.' }
       format.json { head :no_content }
+      format.js   { render :file => "dashboard/songlists/form/_form_success.js.erb" }
     end
   end
 
@@ -66,6 +67,10 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_songlist
       @songlist = Songlist.find(params[:id])
+    end
+
+    def set_songlists
+      @songlists = Songlist.where(playlist: @songlist.playlist).includes(:prefix, :suffix) if @songlist.playlist
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
