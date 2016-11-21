@@ -25,16 +25,15 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
   # POST /dashboard/songlists.json
   def create
     @songlist = Songlist.new(songlist_params)
-    @songlists = Songlist.where(playlist: @songlist.playlist) if @songlist.playlist
+    @songlists = Songlist.where(playlist: @songlist.playlist).includes(:prefix, :suffix) if @songlist.playlist
     respond_to do |format|
       if @songlist.save
         format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully created.' }
         format.json { render :show, status: :created, location: @songlist }
-        format.js { render :file => "dashboard/songlists/form/_form_success.js.erb" }
+        format.js   { render :file => "dashboard/songlists/form/_form_success.js.erb" }
       else
         format.html { render :new }
         format.json { render json: @songlist.errors, status: :unprocessable_entity }
-        format.js
       end
     end
   end

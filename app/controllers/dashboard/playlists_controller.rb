@@ -10,6 +10,8 @@ class Dashboard::PlaylistsController < Dashboard::ApplicationController
   # GET /dashboard/playlists/1
   # GET /dashboard/playlists/1.json
   def show
+    @songlists = Songlist.where(playlist: @playlist).includes(:prefix, :suffix)
+    @songlist  = Songlist.new(playlist: @playlist)
   end
 
   # GET /dashboard/playlists/new

@@ -20,5 +20,13 @@
   <%= @playlist.published_at %>
 </p>
 
+<code id="songlists_show">
+  <%= render 'dashboard/songlists/form/songlists_show', songlists: @songlists %>
+</code>
+
+<%= form_for(@songlist, url: dashboard_songlists_path, method: :post, :remote => true) do |f| %>
+  <%= render 'dashboard/songlists/form/form', songlist: @songlist, f: f %>
+<% end %>
+
 <%= link_to 'Edit', edit_dashboard_playlist_path(@playlist) %> |
 <%= link_to 'Back', dashboard_playlists_path %>
