@@ -1,6 +1,6 @@
 class Dashboard::SonglistsController < Dashboard::ApplicationController
   before_action :set_songlist, only: [:show, :edit, :update, :destroy]
-  before_action :set_songlists, only: [:create, :destroy]
+  before_action :set_songlists, only: [:update, :destroy]
 
   # GET /dashboard/songlists
   # GET /dashboard/songlists.json
@@ -20,17 +20,22 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
 
   # GET /dashboard/songlists/1/edit
   def edit
+    respond_to do |format|
+      format.html { render :edit }
+      format.js   { render :file => "dashboard/songlists/ajax/_edit.js.erb" }
+    end
   end
 
   # POST /dashboard/songlists
   # POST /dashboard/songlists.json
   def create
     @songlist = Songlist.new(songlist_params)
+    set_songlists
     respond_to do |format|
       if @songlist.save
         format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully created.' }
         format.json { render :show, status: :created, location: @songlist }
-        format.js   { render :file => "dashboard/songlists/form/_form_success.js.erb" }
+        format.js   { render :file => "dashboard/songlists/ajax/_success.js.erb" }
       else
         format.html { render :new }
         format.json { render json: @songlist.errors, status: :unprocessable_entity }
@@ -45,6 +50,7 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
       if @songlist.update(songlist_params)
         format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully updated.' }
         format.json { render :show, status: :ok, location: @songlist }
+        format.js   { render :file => "dashboard/songlists/ajax/_success.js.erb" }
       else
         format.html { render :edit }
         format.json { render json: @songlist.errors, status: :unprocessable_entity }
@@ -59,7 +65,7 @@ class Dashboard::SonglistsController < Dashboard::ApplicationController
     respond_to do |format|
       format.html { redirect_to dashboard_songlists_url, notice: 'Songlist was successfully destroyed.' }
       format.json { head :no_content }
-      format.js   { render :file => "dashboard/songlists/form/_form_success.js.erb" }
+      format.js   { render :file => "dashboard/songlists/ajax/_success.js.erb" }
     end
   end
 

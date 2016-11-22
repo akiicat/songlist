@@ -21,8 +21,11 @@
 </p>
 
 <code id="songlists_show">
-  <%= render 'dashboard/songlists/form/songlists_show', songlists: @songlists %>
+  <%= render 'dashboard/songlists/show/songlists', songlists: @songlists %>
 </code>
+
+<div id="songlists_edit">
+</div>
 
 <%= form_for(@songlist, url: dashboard_songlists_path, method: :post, :remote => true) do |f| %>
   <%= render 'dashboard/songlists/form/form', songlist: @songlist, f: f %>
