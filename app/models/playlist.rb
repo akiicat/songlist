@@ -21,7 +21,7 @@ private
   def add_title
     if info = get_info_from_api
       self.title        = info[:title]        if self.title.blank?
-      self.published_at = info[:published_at] if self.published_at.blank?
+      self.published_at = info[:published_at]
     end
   end
 end
