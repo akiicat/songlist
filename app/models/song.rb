@@ -26,5 +26,7 @@ class Song < ApplicationRecord
     else
       "#{song_info} (#{supplement})"
     end
+  def self.all_element
+    all.includes(:singer, :composr)
   end
 end
