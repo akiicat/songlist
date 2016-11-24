@@ -7,6 +7,6 @@ class Songlist < ApplicationRecord
 
   # scoping
   def self.where_all_element(element)
-    where(element).includes(:playlist, :prefix, :suffix, :song => [:singer, :composer])
+    where(element).includes(:playlist, :prefix, :suffix, :song => [:singer, :composer]).order(:marker)
   end
 end
