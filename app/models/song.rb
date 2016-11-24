@@ -13,19 +13,19 @@ class Song < ApplicationRecord
     end
   end
 
-  def song_info
-    singer     = self.singer.name_info if self.singer
+  def name_all
+    singer     = self.singer.name_info   if self.singer
     composer   = self.composer.name_info if self.composer
-    song_info  = "#{singer} - #{self.title_info}".strip
+    title      = self.title_info
     supplement = "#{composer} #{self.description}".strip
 
-    if self.composer.blank? and self.description.blank? and singer.blank? and self.title_info.blank?
-      ""
-    elsif self.composer.blank? and self.description.blank?
-      "#{song_info}"
-    else
-      "#{song_info} (#{supplement})"
-    end
+    results = (singer.blank? or title.blank?) ? "#{singer} #{title}" : "#{singer} - #{title}"
+    results.strip!
+    results += " (#{supplement})" unless supplement.blank?
+
+    return results
+  end
+
   def self.all_element
     all.includes(:singer, :composr)
   end

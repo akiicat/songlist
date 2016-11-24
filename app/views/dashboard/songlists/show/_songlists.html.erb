@@ -2,7 +2,7 @@
 <% songlists.each do |songlist| %>
   <%= songlist.marker.strftime("%H:%M:%S") %>
   <%= songlist.prefix.content if songlist.prefix %>
-  <%= songlist.song.title if songlist.song %>
+  <%= songlist.song.name_all  if songlist.song %>
   <%= songlist.suffix.content if songlist.suffix %>
   <%= link_to 'Edit', edit_dashboard_songlist_path(songlist), remote: true %></td>
   <%= link_to 'Destroy', dashboard_songlist_path(songlist), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
