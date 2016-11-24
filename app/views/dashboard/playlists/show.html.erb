@@ -27,7 +27,7 @@
 <div id="songlists_edit">
 </div>
 
-<%= form_for(@songlist, url: dashboard_songlists_path, method: :post, :remote => true) do |f| %>
+<%= form_for(@songlist, url: dashboard_songlists_path, method: :post, remote: true) do |f| %>
   <%= render 'dashboard/songlists/form/form', songlist: @songlist, f: f %>
 <% end %>
 
