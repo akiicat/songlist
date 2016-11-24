@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Songinfo.create!(content: "消音")
+Songinfo.create!(content: "消音結束")
 Singer.create!(name: "宋冬野")
 Singer.create!(name: "徐佳瑩")
 Singer.create!(name: "蔡健雅")
