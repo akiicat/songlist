@@ -10,7 +10,7 @@ class Dashboard::PlaylistsController < Dashboard::ApplicationController
   # GET /dashboard/playlists/1
   # GET /dashboard/playlists/1.json
   def show
-    @songlists = Songlist.where_all_element(playlist: @songlist.playlist)
+    @songlists = Songlist.where_all_element(playlist: @playlist)
     @songlist  = Songlist.new(playlist: @playlist)
   end
 

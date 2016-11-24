@@ -27,6 +27,6 @@ class Song < ApplicationRecord
   end
 
   def self.all_element
-    all.includes(:singer, :composr)
+    all.includes(:singer, :composer)
   end
 end
