@@ -15,6 +15,10 @@ class Dashboard::SonginfosController < Dashboard::ApplicationController
   # GET /dashboard/songinfos/new
   def new
     @songinfo = Songinfo.new
+    respond_to do |format|
+      format.html
+      format.js   { render :file => "dashboard/songinfos/ajax/_new.js.erb" }
+    end
   end
 
   # GET /dashboard/songinfos/1/edit
@@ -30,6 +34,7 @@ class Dashboard::SonginfosController < Dashboard::ApplicationController
       if @songinfo.save
         format.html { redirect_to dashboard_songinfos_url, notice: 'Songinfo was successfully created.' }
         format.json { render :show, status: :created, location: @songinfo }
+        format.js   { render :file => "dashboard/songlists/ajax/_success.js.erb" }
       else
         format.html { render :new }
         format.json { render json: @songinfo.errors, status: :unprocessable_entity }

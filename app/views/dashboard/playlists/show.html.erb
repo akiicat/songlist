@@ -20,16 +20,24 @@
   <%= @playlist.published_at %>
 </p>
 
+<h2>songlists_show</h2>
 <code id="songlists_show">
   <%= render 'dashboard/songlists/show/songlists', songlists: @songlists %>
 </code>
 
+<h2>songlists edit</h2>
 <div id="songlists_edit">
 </div>
 
+<h2>songlist new</h2>
 <%= form_for(@songlist, url: dashboard_songlists_path, method: :post, remote: true) do |f| %>
   <%= render 'dashboard/songlists/form/form', songlist: @songlist, f: f %>
 <% end %>
 
+<h2>songinfo new</h2>
+<div id="songinfos_new">
+</div>
+
 <%= link_to 'Edit', edit_dashboard_playlist_path(@playlist) %> |
-<%= link_to 'Back', dashboard_playlists_path %>
+<%= link_to 'Back', dashboard_playlists_path %> |
+<%= link_to 'New songinfo', new_dashboard_songinfo_path, remote: true %>
