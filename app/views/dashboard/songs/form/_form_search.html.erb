@@ -1,0 +1,35 @@
+<%= @songs.count %>
+<table>
+  <thead>
+    <tr>
+      <th>Singer</th>
+      <th>Composer</th>
+      <th>Title</th>
+      <th>Title translation</th>
+      <th>Description</th>
+      <th>Lyric url</th>
+      <th>Video url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.singer.name if song.singer %></td>
+        <td><%= song.composer.name if song.composer %></td>
+        <td><%= song.title %></td>
+        <td><%= song.title_translation %></td>
+        <td><%= song.description %></td>
+        <td>
+          <%#= link_to 'lyric_url', song.lyric_url if song.lyric_url %>
+          <%= song.lyric_url %>
+        </td>
+        <td><%= link_to 'video_url', song.video_url if song.video_url %></td>
+        <td><%= link_to 'Show', dashboard_song_path(song) %></td>
+        <td><%= link_to 'Edit', edit_dashboard_song_path(song) %></td>
+        <td><%= link_to 'Destroy', dashboard_song_path(song), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

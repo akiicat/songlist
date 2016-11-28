@@ -1,7 +1,7 @@
 <h1>Editing Song</h1>
 
 <%= form_for(@song, url: dashboard_song_path(@song), method: :patch) do |f| %>
-  <%= render 'form', song: @song, f: f %>
+  <%= render 'dashboard/songs/form/form', song: @song, f: f %>
 <% end %>
 
 <%= link_to 'Show', dashboard_song_path(@song) %> |

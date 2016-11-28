@@ -29,4 +29,15 @@ class Song < ApplicationRecord
   def self.all_element
     all.includes(:singer, :composer)
   end
+
+  def self.search(search)
+    if search
+      # OR singer.name LIKE UPPER(:search) includes(:singer, :composer)
+      # where(Song.arel_table[:title].matches("%#{search}%")).includes(:singer, :composer)
+      joins("LEFT OUTER JOIN singers ON singers.id = songs.singer_id OR singers.id = songs.composer_id").where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").distinct.includes(:singer, :composer)
+      # joins(:singer, :composer).where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").includes(:singer, :composer)
+    else
+      all_element
+    end
+  end
 end

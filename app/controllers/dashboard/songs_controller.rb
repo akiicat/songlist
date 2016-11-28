@@ -4,7 +4,12 @@ class Dashboard::SongsController < Dashboard::ApplicationController
   # GET /dashboard/songs
   # GET /dashboard/songs.json
   def index
-    @songs = Song.all
+    #@songs = Song.all.includes(:singer, :composer)
+    @songs = Song.search(params[:search])
+    respond_to do |format|
+      format.html
+      format.js   { render :file => "dashboard/songs/ajax/search.js.erb" }
+    end
   end
 
   # GET /dashboard/songs/1

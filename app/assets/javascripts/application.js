@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function() {
+
+  $("#songs_search input").keyup(function() {
+    $.get($("#songs_search").attr("action"), $("#songs_search").serialize(), null, "script");
+    return false;
+  });
+});
