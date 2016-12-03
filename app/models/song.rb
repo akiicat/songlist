@@ -8,11 +8,9 @@ class Song < ApplicationRecord
   accepts_nested_attributes_for :composer
 
   def title_with_translation
-    if self.title_translation.blank?
-      "#{self.title}"
-    else
-      "#{self.title} / #{self.title_translation}"
-    end
+    rtn  = "#{self.title}"
+    rtn += " / #{self.title_translation}" unless self.title_translation.blank?
+    rtn.strip
   end
 
   def name_all
@@ -21,15 +19,10 @@ class Song < ApplicationRecord
     title      = self.title_with_translation
     supplement = "#{composer} #{self.description}".strip
 
-    results = (singer.blank? or title.blank?) ? "#{singer} #{title}" : "#{singer} - #{title}"
-    results.strip!
+    results = (singer.blank? or title.blank?) ? "#{singer}#{title}" : "#{singer} - #{title}"
     results += " (#{supplement})" unless supplement.blank?
 
     return results
-  end
-
-  def self.all_element
-    all.includes(:singer, :composer)
   end
 
   def self.search(search)
@@ -39,7 +32,7 @@ class Song < ApplicationRecord
       joins("LEFT OUTER JOIN singers ON singers.id = songs.singer_id OR singers.id = songs.composer_id").where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").distinct.includes(:singer, :composer)
       # joins(:singer, :composer).where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").includes(:singer, :composer)
     else
-      all_element
+      all
     end
   end
 end
