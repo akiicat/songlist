@@ -10,6 +10,16 @@
   <%= @singer.name_translation %>
 </p>
 
+<p>
+  <strong>Singer songs count</strong>
+  <%= @singer.count_of_singer_songs %>
+</p>
+
+<p>
+  <strong>Composer songs count</strong>
+  <%= @singer.count_of_composer_songs %>
+</p>
+
 <% @singer.songs.each do |song| %>
   <p><%= link_to song.title, dashboard_song_path(song) %></p>
 <% end %>

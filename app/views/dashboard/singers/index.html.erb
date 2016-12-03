@@ -11,7 +11,8 @@
     <tr>
       <th>Name</th>
       <th>Name translation</th>
-      <th>Nametile</th>
+      <th>singer_songs_count</th>
+      <th>composer_songs_count</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +22,8 @@
       <tr>
         <td><%= singer.name %></td>
         <td><%= singer.name_translation %></td>
+        <td><%= singer.count_of_singer_songs %></td>
+        <td><%= singer.count_of_composer_songs %></td>
         <td><%= link_to 'Show', dashboard_singer_path(singer) %></td>
         <td><%= link_to 'Edit', edit_dashboard_singer_path(singer) %></td>
         <td><%= link_to 'Destroy', dashboard_singer_path(singer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
