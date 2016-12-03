@@ -10,15 +10,19 @@
   </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :singer_id %>
-  <%= f.collection_select :singer_id, Singer.all, :id, :name, prompt: true %>
-</div>
+<%= f.fields_for :singer do |ff| %>
+  <div class="field">
+    <%= ff.label :name %>
+    <%= ff.text_field :name %>
+  </div>
+<% end %>
 
-<div class="field">
-  <%= f.label :composer_id %>
-  <%= f.collection_select :composer_id, Singer.all, :id, :name, prompt: true %>
-</div>
+<%= f.fields_for :composer do |ff| %>
+  <div class="field">
+    <%= ff.label :name %>
+    <%= ff.text_field :name %>
+  </div>
+<% end %>
 
 <div class="field">
   <%= f.label :title %>

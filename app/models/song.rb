@@ -4,6 +4,8 @@ class Song < ApplicationRecord
 
   belongs_to :singer  , :class_name => "Singer", :foreign_key => "singer_id"  , counter_cache: :count_of_singer_songs
   belongs_to :composer, :class_name => "Singer", :foreign_key => "composer_id", counter_cache: :count_of_composer_songs
+  accepts_nested_attributes_for :singer
+  accepts_nested_attributes_for :composer
 
   def title_with_translation
     if self.title_translation.blank?

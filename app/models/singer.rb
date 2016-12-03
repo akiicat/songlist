@@ -8,4 +8,9 @@ class Singer < ApplicationRecord
       "#{self.name} / #{singer.name_translation}"
     end
   end
+
+  def self.find_singer(name, trans = nil)
+    trans ||= ""
+    Singer.find_by(name: name, name_translation: trans) || Singer.create(name: name, name_translation: trans)
+  end
 end
