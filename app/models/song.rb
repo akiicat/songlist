@@ -7,6 +7,8 @@ class Song < ApplicationRecord
   accepts_nested_attributes_for :singer
   accepts_nested_attributes_for :composer
 
+  default_scope { includes(:singer, :composer) }
+
   def title_with_translation
     rtn  = "#{self.title}"
     rtn += " / #{self.title_translation}" unless self.title_translation.blank?

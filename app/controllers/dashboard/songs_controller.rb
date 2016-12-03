@@ -70,7 +70,7 @@ class Dashboard::SongsController < Dashboard::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
-      @song = Song.includes(:singer, :composer).find(params[:id])
+      @song = Song.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
