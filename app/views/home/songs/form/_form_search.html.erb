@@ -1,0 +1,26 @@
+<%= @songs.count %>
+<table>
+  <thead>
+    <tr>
+      <th>歌手</th>
+      <th>歌名</th>
+      <th>作曲</th>
+      <th>補充資料</th>
+      <th>歌詞連結</th>
+      <th>影片連結</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.singer.name_with_translation %></td>
+        <td><%= song.title_with_translation %></td>
+        <td><%= song.composer.name_with_translation %></td>
+        <td><%= song.description %></td>
+        <td><%= link_to '歌詞頁面', song.lyric_url unless song.lyric_url.blank? %></td>
+        <td><%= link_to 'Youtube', song.video_url unless song.video_url.blank? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
