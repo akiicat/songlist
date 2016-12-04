@@ -475,11 +475,18 @@ song = [
   [ "GUMI", "赤髪", "StarCrew", "https://www5.atwiki.jp/hmiku/pages/20453.html" ],
 ]
 song.map! do |s|
-  rtn = {}
-  rtn[:singer]    = Singer.find_singer(s[0])
-  rtn[:composer]  = Singer.find_singer(s[1])
-  rtn[:title]     = s[2]
-  rtn[:lyric_url] = s[3]
-  rtn
+  {
+    singer: Singer.find_singer(s[0]),
+    composer: Singer.find_singer(s[1]),
+    title: s[2],
+    title_translation: "",
+
+    description: "",
+    cover: "",
+    feat: "",
+
+    lyric_url: s[3],
+    video_url: "",
+  }
 end
 Song.create!(song)
