@@ -16,17 +16,15 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
-        <td><%= song.singer.name   if song.singer   %></td>
-        <td><%= song.composer.name if song.composer %></td>
-        <td><%= song.title %></td>
+        <td><%= link_to song.singer.name, dashboard_singer_path(song.singer)   if song.singer   %></td>
+        <td><%= link_to song.composer.name, dashboard_singer_path(song.singer) if song.composer %></td>
+        <td><%= link_to song.title, dashboard_song_path(song) %></td>
         <td><%= song.title_translation %></td>
         <td><%= song.description %></td>
         <td>
-          <%#= link_to 'lyric_url', song.lyric_url unless song.lyric_url.blank? %>
-          <%= song.lyric_url %>
+          <%= link_to 'lyric_url', song.lyric_url unless song.lyric_url.blank? %>
         </td>
         <td><%= link_to 'video_url', song.video_url unless song.video_url.blank? %></td>
-        <td><%= link_to 'Show', dashboard_song_path(song) %></td>
         <td><%= link_to 'Edit', edit_dashboard_song_path(song) %></td>
         <td><%= link_to 'Destroy', dashboard_song_path(song), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
