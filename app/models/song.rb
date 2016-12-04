@@ -7,7 +7,7 @@ class Song < ApplicationRecord
   accepts_nested_attributes_for :singer
   accepts_nested_attributes_for :composer
 
-  default_scope { includes(:singer, :composer) }
+  default_scope { includes(:singer, :composer).order("singers.name", "title") }
 
   def title_with_translation
     rtn  = "#{self.title}"
@@ -31,7 +31,7 @@ class Song < ApplicationRecord
     if search
       # OR singer.name LIKE UPPER(:search) includes(:singer, :composer)
       # where(Song.arel_table[:title].matches("%#{search}%")).includes(:singer, :composer)
-      joins("LEFT OUTER JOIN singers ON singers.id = songs.singer_id OR singers.id = songs.composer_id").where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").distinct.includes(:singer, :composer)
+      unscoped.joins("LEFT OUTER JOIN singers ON singers.id = songs.singer_id OR singers.id = songs.composer_id").where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").includes(:singer, :composer).distinct.sort_by{|x| [x.singer.name, x.title]}
       # joins(:singer, :composer).where('UPPER(songs.title) LIKE UPPER(:search) OR UPPER(singers.name) LIKE UPPER(:search)', search: "%#{search}%").includes(:singer, :composer)
     else
       all
