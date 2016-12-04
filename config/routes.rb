@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :home do
+  scope module: :home do
     resources :playlists
     resources :songs
   end
