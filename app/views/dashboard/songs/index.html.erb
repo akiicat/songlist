@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Dashboard Songs</h1>
-
-<%= link_to 'New Song', new_dashboard_song_path %>
-
-<br>
-
-<%= form_tag dashboard_songs_path, method: :get, id: "songs_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-  <div id="songs">
-    <%= render "dashboard/songs/form/form_search" %>
-  </div>
+<%= content_for :search_bar do %>
+  <%= render partial: "dashboard/songs/features/search_bar" %>
 <% end %>
+
+<header>
+  <h1>
+    <span id="songs_count"><%= @songs.count %></span>
+    首
+  </h1>
+</header>
+
+<div id="songs">
+  <%= render "dashboard/songs/form/form_search" %>
+</div>

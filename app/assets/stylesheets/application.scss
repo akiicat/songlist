@@ -13,3 +13,107 @@
  *= require_tree .
  *= require_self
  */
+
+.search-wrapper {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+
+  .container {
+    padding: 10px 0;
+    .search-form {
+      width: 300px;
+      margin: 0 10px 0 0;
+    }
+    .search-btn {
+      width: 75px;
+      left: 0;
+      right: 0;
+      margin: 0 10px 0 0;
+    }
+    a {
+      line-height: 34px;
+      float: right;
+      font-weight: 600;
+      margin: 0 10px 0 0;
+    }
+  }
+}
+
+.main {
+  margin-top: 54px;
+}
+
+$spacer: 20px;
+$body-bg: transparent;
+$table-cell-padding: 8px;
+$table-border-width: 0px;
+$table-border-color: #ddd;
+$table-bg-accent: #f9f9f9;
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $spacer;
+
+  th,
+  td {
+    text-align: left;
+    padding: $table-cell-padding;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  .table {
+    background-color: $body-bg;
+  }
+}
+
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+a {
+  color: black;
+  &:hover {
+    color: black + 90;
+    fill: black + 90;
+    text-decoration: none;
+  }
+}
+
+
+.song-wrapper {
+  code {
+    font-size: 14px;
+  }
+
+  a .description {
+    color: gray;
+    &:hover {
+      color: gray + 40;
+    }
+  }
+
+  .icon {
+    height: 22px;
+    margin-left: 10px;
+
+    &.right {
+      float: right;
+    }
+  }
+}
