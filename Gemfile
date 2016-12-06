@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'octicons_helper'
 gem 'yt'
 # gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
