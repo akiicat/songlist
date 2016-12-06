@@ -24,12 +24,12 @@
         <td>
           <% unless song.lyric_url.blank? %>
             <%= link_to song.lyric_url do %>
-              <%= image_tag "lyrics.png", class: "icon" %>
+              <%= image_tag "lyrics.png", class: "icon right" %>
             <% end %>
           <% end %>
           <% unless song.video_url.blank? %>
             <%= link_to song.video_url do %>
-              <%= image_tag "youtube.png", class: "icon" %>
+              <%= image_tag "youtube.png", class: "icon right" %>
             <% end %>
           <% end %>
         </td>
