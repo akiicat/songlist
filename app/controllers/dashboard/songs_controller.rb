@@ -75,12 +75,20 @@ class Dashboard::SongsController < Dashboard::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      args     = params.require(:song).permit(:title, :title_translation, :description, :cover, :feat, :lyric_url, :video_url)
+      args = params.require(:song)
+                   .permit(:title, :title_translation, :description, :cover, :feat, :lyric_url, :video_url)
+                   .map { |k, v| [k, v.to_s.strip] }
+                   .to_h
 
-      singer   = params.require(:song).require(:singer_attributes).permit(:id, :name, :name_translation)
-      composer = params.require(:song).require(:composer_attributes).permit(:id, :name, :name_translation)
-      args['singer_id']   = Singer.find_singer(singer['name'], singer['name_translation']).id
-      args['composer_id'] = Singer.find_singer(composer['name'], composer['name_translation']).id
+      singers = {
+        'singer_id': :singer_attributes,
+        'composer_id': :composer_attributes,
+      }
+      singers.each do |k, v|
+        singer  = params.require(:song).require(v).permit(:id, :name, :name_translation)
+        args[k] = Singer.find_singer(singer['name'], singer['name_translation']).id
+      end
+
 
       args
     end
