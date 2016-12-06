@@ -7,6 +7,8 @@ class Singer < ApplicationRecord
     rtn.strip
   end
 
+  default_scope { order("count_of_singer_songs + count_of_composer_songs DESC") }
+
   def self.find_singer(name, trans = nil)
     trans ||= ""
     name.strip!
