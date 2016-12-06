@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "home/songs#index"
   scope module: :home do
     resources :playlists
     resources :songs
