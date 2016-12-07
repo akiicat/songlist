@@ -11,8 +11,18 @@
   <body>
     <%= render partial: "dashboard/features/search_bar" %>
 
-    <div class="container main">
-      <%= yield %>
+    <div class="main">
+      <% if notice %>
+        <div class="flash">
+          <div class="container">
+            <%= notice %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
