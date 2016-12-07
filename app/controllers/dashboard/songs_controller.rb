@@ -21,6 +21,8 @@ class Dashboard::SongsController < Dashboard::ApplicationController
   # GET /dashboard/songs/new
   def new
     @song = Song.new
+    @song.build_singer
+    @song.build_composer
   end
 
   # GET /dashboard/songs/1/edit
