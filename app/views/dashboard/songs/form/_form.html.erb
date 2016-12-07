@@ -10,55 +10,85 @@
   </div>
 <% end %>
 
+<div class="field">
+  <div class="label">
+    <%= f.label "歌名：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :title, class: "form-control input-lg", placeholder: "歌名" %> /
+    <%= f.text_field :title_translation, class: "form-control input-lg", placeholder: "翻譯" %>
+  </div>
+</div>
+
 <%= f.fields_for :singer do |ff| %>
   <div class="field">
-    <%= ff.label :name %>
-    <%= ff.text_field :name %>
+    <div class="label">
+      <%= ff.label "歌手：" %>
+    </div>
+    <div class="content">
+      <%= ff.text_field :name, class: "form-control input-lg", placeholder: "歌手" %> /
+      <%= ff.text_field :name_translation, class: "form-control input-lg", placeholder: "翻譯" %>
+    </div>
   </div>
 <% end %>
 
 <%= f.fields_for :composer do |ff| %>
   <div class="field">
-    <%= ff.label :name %>
-    <%= ff.text_field :name %>
+    <div class="label">
+      <%= ff.label "作曲：" %>
+    </div>
+    <div class="content">
+      <%= ff.text_field :name, class: "form-control input-lg", placeholder: "作曲" %> /
+      <%= ff.text_field :name_translation, class: "form-control input-lg", placeholder: "翻譯" %>
+    </div>
   </div>
 <% end %>
 
 <div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="label">
+    <%= f.label "Cover：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :cover, class: "form-control input-lg" %>
+  </div>
 </div>
 
 <div class="field">
-  <%= f.label :title_translation %>
-  <%= f.text_field :title_translation %>
+  <div class="label">
+    <%= f.label "Feat：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :feat, class: "form-control input-lg" %>
+  </div>
 </div>
 
 <div class="field">
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <div class="label">
+    <%= f.label "補充：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :description, class: "form-control input-lg" %>
+  </div>
 </div>
 
 <div class="field">
-  <%= f.label :cover %>
-  <%= f.text_field :cover %>
+  <div class="label">
+    <%= f.label "歌詞連結：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :lyric_url, class: "form-control input-lg" %>
+  </div>
 </div>
 
 <div class="field">
-  <%= f.label :feat %>
-  <%= f.text_field :feat %>
-</div>
-
-<div class="field">
-  <%= f.label :lyric_url %>
-  <%= f.text_field :lyric_url %>
-</div>
-
-<div class="field">
-  <%= f.label :video_url %>
-  <%= f.text_field :video_url %>
+  <div class="label">
+    <%= f.label "Youtube連結：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :video_url, class: "form-control input-lg" %>
+  </div>
 </div>
 
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit '更新歌手', :class => "btn btn-primary" %>
 </div>

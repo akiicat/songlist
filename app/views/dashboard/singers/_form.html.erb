@@ -11,15 +11,15 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</div>
-
-<div class="field">
-  <%= f.label :name_translation %>
-  <%= f.text_field :name_translation %>
+  <div class="label">
+    <%= f.label "歌手：" %>
+  </div>
+  <div class="content">
+    <%= f.text_field :name, class: "form-control input-lg", placeholder: "姓名" %> /
+    <%= f.text_field :name_translation, class: "form-control input-lg", placeholder: "翻譯" %>
+  </div>
 </div>
 
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit "更新歌手", :class => "btn btn-primary" %>
 </div>
