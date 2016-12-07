@@ -1,4 +1,6 @@
-<h1>Editing Song</h1>
+<header>
+  <h1>編輯歌名</h1>
+</header>
 
 <%= form_for(@song, url: dashboard_song_path(@song), method: :patch) do |f| %>
   <%= render 'dashboard/songs/form/form', song: @song, f: f %>

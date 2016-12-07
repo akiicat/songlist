@@ -1,4 +1,6 @@
-<h1>Editing Singer</h1>
+<header>
+  <h1>編輯歌手</h1>
+</header>
 
 <%= form_for(@singer, url: dashboard_singer_path(@singer), method: :patch) do |f| %>
   <%= render 'form', singer: @singer, f: f %>
