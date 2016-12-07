@@ -1,11 +1,8 @@
-<div class="search-wrapper bg-gray-light">
+<div class="search-wrapper bg-gray">
   <div class="container">
     <%= form_tag dashboard_songs_path, method: :get, id: "songs_search" do %>
       <%= text_field_tag :search, params[:search], placeholder: "請輸入歌名或歌手", class: "search-form form-control input-lg" %>
       <%= submit_tag "搜尋", name: nil, class: "search-btn btn" %>
-
-      <%= link_to '歌曲', dashboard_songs_path %>
-      <%= link_to '歌手', dashboard_singers_path %>
 
       <%= link_to new_dashboard_song_path do %>
         <%= octicon "plus" %>

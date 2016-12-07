@@ -5,6 +5,3 @@
 <%= form_for(@song, url: dashboard_song_path(@song), method: :patch) do |f| %>
   <%= render 'dashboard/songs/form/form', song: @song, f: f %>
 <% end %>
-
-<%= link_to 'Show', dashboard_song_path(@song) %> |
-<%= link_to 'Back', dashboard_songs_path %>
