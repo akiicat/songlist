@@ -34,7 +34,7 @@ class Dashboard::SongsController < Dashboard::ApplicationController
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to dashboard_songs_url, notice: 'Song was successfully created.' }
+        format.html { redirect_to dashboard_songs_url, notice: "歌曲新增成功。" }
         format.json { render :show, status: :created, location: @song }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class Dashboard::SongsController < Dashboard::ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
-        format.html { redirect_to dashboard_songs_url, notice: 'Song was successfully updated.' }
+        format.html { redirect_to dashboard_songs_url, notice: "歌曲更新成功。" }
         format.json { render :show, status: :ok, location: @song }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class Dashboard::SongsController < Dashboard::ApplicationController
   def destroy
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_songs_url, notice: 'Song was successfully destroyed.' }
+      format.html { redirect_to dashboard_songs_url, notice: "歌曲刪除成功。" }
       format.json { head :no_content }
     end
   end
