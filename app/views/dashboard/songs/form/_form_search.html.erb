@@ -13,7 +13,7 @@
       <tr class="song-wrapper">
         <td>
           <code class="singer">
-            <%= link_to dashboard_singer_path(song.singer) do %>
+            <%= link_to edit_dashboard_singer_path(song.singer) do %>
               <%= octicon "pencil" %>
               <%= song.singer.name_with_translation %>
             <% end %>
@@ -21,7 +21,7 @@
         </td>
         <td>
           <code class="song">
-            <%= link_to dashboard_song_path(song) do %>
+            <%= link_to edit_dashboard_song_path(song) do %>
               <%= octicon "pencil", class: "icon oct" %>
               <%= song.title_with_translation %>
               <span class="description">
@@ -32,7 +32,7 @@
           </code>
         </td>
         <td>
-          <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '確定要刪除？' } do %>
             <%= octicon "trashcan", height: "22px", class: "icon right", :"aria-label" => "delete" %>
           <% end %>
           <% unless song.lyric_url.blank? %>

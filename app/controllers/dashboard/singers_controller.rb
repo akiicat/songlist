@@ -42,7 +42,7 @@ class Dashboard::SingersController < Dashboard::ApplicationController
   def update
     respond_to do |format|
       if @singer.update(singer_params)
-        format.html { redirect_to dashboard_singers_url, notice: 'Singer was successfully updated.' }
+        format.html { redirect_to dashboard_songs_url, notice: '更新成功。' }
         format.json { render :show, status: :ok, location: @singer }
       else
         format.html { render :edit }
