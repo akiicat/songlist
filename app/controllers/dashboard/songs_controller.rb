@@ -83,12 +83,12 @@ class Dashboard::SongsController < Dashboard::ApplicationController
                    .to_h
 
       singers = {
-        'singer_id': :singer_attributes,
-        'composer_id': :composer_attributes,
+        "singer_id": :singer_attributes,
+        "composer_id": :composer_attributes,
       }
       singers.each do |k, v|
         singer  = params.require(:song).require(v).permit(:id, :name, :name_translation)
-        args[k] = Singer.find_singer(singer['name'], singer['name_translation']).id
+        args[k] = Singer.find_singer(singer["name"], singer["name_translation"]).id
       end
 
 
