@@ -78,7 +78,7 @@ class Dashboard::SongsController < Dashboard::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
       args = params.require(:song)
-                   .permit(:title, :title_translation, :description, :cover, :feat, :lyric_url, :video_url)
+                   .permit(:title, :title_translation, :description, :lyric_url, :video_url)
                    .map { |k, v| [k, v.to_s.strip] }
                    .to_h
 
@@ -90,7 +90,6 @@ class Dashboard::SongsController < Dashboard::ApplicationController
         singer  = params.require(:song).require(v).permit(:id, :name, :name_translation)
         args[k] = Singer.find_singer(singer["name"], singer["name_translation"]).id
       end
-
 
       args
     end

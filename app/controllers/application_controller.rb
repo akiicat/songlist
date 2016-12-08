@@ -18,9 +18,6 @@ private
       title: song.title.to_s,
       title_translation: song.title_translation.to_s,
 
-      cover: song.cover.to_s,
-      feat: song.feat.to_s,
-
       description: song.description.to_s,
 
       lyric_url: song.lyric_url.to_s,

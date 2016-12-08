@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 20161120125352) do
     t.string   "description"
     t.string   "lyric_url"
     t.string   "video_url"
-    t.string   "cover"
-    t.string   "feat"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
