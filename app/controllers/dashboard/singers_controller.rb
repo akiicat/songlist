@@ -69,6 +69,9 @@ class Dashboard::SingersController < Dashboard::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def singer_params
-      params.require(:singer).permit(:name, :name_translation)
+      params.require(:singer)
+            .permit(:name, :name_translation)
+            .map { |k, v| [k, v.to_s.strip] }
+            .to_h
     end
 end
