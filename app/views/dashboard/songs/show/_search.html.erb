@@ -32,9 +32,11 @@
           </code>
         </td>
         <td>
-          <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '確定要刪除？' } do %>
-            <%= octicon "trashcan", height: "22px", class: "icon right", :"aria-label" => "delete" %>
+          <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你真的確定要刪除？' } do %>
+            <%= octicon "trashcan", height: "22px", class: "icon right" %>
           <% end %>
+          <%= octicon "clippy", height: "22px", class: "icon right", "data-clippy": song.name_all %>
+
           <% unless song.lyric_url.blank? %>
             <%= link_to song.lyric_url do %>
               <%= image_tag "lyrics.png", class: "icon right" %>
