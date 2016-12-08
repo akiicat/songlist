@@ -38,12 +38,12 @@
           <%= octicon "clippy", height: "22px", class: "icon right", "data-clippy": song.name_all %>
 
           <% unless song.lyric_url.blank? %>
-            <%= link_to song.lyric_url do %>
+            <%= link_to song.lyric_url, target: "_blank" do %>
               <%= image_tag "lyrics.png", class: "icon right" %>
             <% end %>
           <% end %>
           <% unless song.video_url.blank? %>
-            <%= link_to song.video_url do %>
+            <%= link_to song.video_url, target: "_blank" do %>
               <%= image_tag "youtube.png", class: "icon right" %>
             <% end %>
           <% end %>
