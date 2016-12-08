@@ -10,10 +10,10 @@
   </thead>
   <tbody>
     <% @songs.each do |song| %>
-      <tr class="song-wrapper">
+      <tr class="tr-wrapper">
         <td><code class="singer"><%= song.singer.name_with_translation %></code></td>
         <td>
-          <code class="song">
+          <code>
             <%= song.title_with_translation %>
             <span class="description">
               <% t = "#{song.composer.name_with_translation} #{song.description}".strip %>

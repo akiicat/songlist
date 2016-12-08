@@ -10,9 +10,9 @@
   </thead>
   <tbody>
     <% @songs.each do |song| %>
-      <tr class="song-wrapper">
+      <tr class="tr-wrapper">
         <td>
-          <code class="singer">
+          <code>
             <%= link_to edit_dashboard_singer_path(song.singer) do %>
               <%= octicon "pencil" %>
               <%= song.singer.name_with_translation %>
@@ -20,7 +20,7 @@
           </code>
         </td>
         <td>
-          <code class="song">
+          <code>
             <%= link_to edit_dashboard_song_path(song) do %>
               <%= octicon "pencil", class: "icon oct" %>
               <%= song.title_with_translation %>

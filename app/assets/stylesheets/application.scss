@@ -95,17 +95,17 @@ a {
   }
 }
 
-
-.song-wrapper {
+.tr-wrapper {
   code {
     font-size: 14px;
   }
 
-  a .description {
+  .description {
     color: gray;
-    &:hover {
-      color: gray + 40;
-    }
+  }
+
+  a .description:hover {
+    color: gray + 40;
   }
 
   .icon {

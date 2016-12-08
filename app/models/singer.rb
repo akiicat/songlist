@@ -1,13 +1,17 @@
 class Singer < ApplicationRecord
   has_many :songs
 
+  default_scope { order(count_of_singer_songs: :desc, count_of_composer_songs: :desc) }
+
   def name_with_translation
     rtn  = "#{self.name}"
     rtn += " / #{self.name_translation}" unless self.name_translation.blank?
     rtn.strip
   end
 
-  default_scope { order(count_of_singer_songs: :desc, count_of_composer_songs: :desc) }
+  def check_singer
+    
+  end
 
   def self.find_singer(name, trans = nil)
     trans ||= ""
