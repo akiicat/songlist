@@ -24,10 +24,7 @@
             <%= link_to edit_dashboard_song_path(song) do %>
               <%= octicon "pencil", class: "icon oct" %>
               <%= song.title_with_translation %>
-              <span class="description">
-                <% t = "#{song.composer.name_with_translation} #{song.description}".strip %>
-                <%= "(#{t})" unless t.blank? %>
-              </span>
+              <span class="description"><%= song.supplement %></span>
             <% end %>
           </code>
         </td>

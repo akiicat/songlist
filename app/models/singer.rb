@@ -6,9 +6,7 @@ class Singer < ApplicationRecord
   after_update :check_singer
 
   def name_with_translation
-    rtn  = "#{self.name}"
-    rtn += " / #{self.name_translation}" unless self.name_translation.blank?
-    rtn.strip
+    [self.name, self.name_translation].reject{ |x| x.blank? }.join(" / ").strip
   end
 
   def check_singer
@@ -30,11 +28,10 @@ class Singer < ApplicationRecord
   end
 
   def self.find_singer(name, trans = nil)
-    trans ||= ""
-    name.strip!
-    trans.strip!
-    rtn   = Singer.find_by(name: name, name_translation: trans)
-    rtn ||= Singer.create(name: name, name_translation: trans, count_of_singer_songs: 0, count_of_composer_songs: 0)
+    name.to_s.strip!
+    trans.to_s.strip!
+    rtn = Singer.find_by(name: name, name_translation: trans) ||
+          Singer.create(name: name, name_translation: trans, count_of_singer_songs: 0, count_of_composer_songs: 0)
     rtn
   end
 end
