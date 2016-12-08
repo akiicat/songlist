@@ -4,7 +4,7 @@ class Home::SongsController < Home::ApplicationController
     respond_to do |format|
       format.html
       format.js   { render :file => "home/songs/ajax/search.js.erb" }
-      format.json { render :json => @songs.map{ |s| export_hash(s) }.to_json }
+      format.json { render :json => JSON.pretty_generate(@songs.map{ |s| export_hash(s) }) }
     end
   end
 end
