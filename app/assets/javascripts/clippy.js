@@ -26,3 +26,4 @@ function copyTextToClipboard(text) {
 }
 
 $(document).ready(clippy);
+$(document).on('turbolinks:load', clippy);
