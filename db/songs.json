@@ -8,26 +8,11 @@
       "name": "",
       "name_translation": ""
     },
-    "title": "fly me to the moon",
-    "title_translation": "",
-    "description": "",
-    "lyric_url": "https://mojim.com/twy108260x7x1.htm",
-    "video_url": ""
-  },
-  {
-    "singer": {
-      "name": "",
-      "name_translation": ""
-    },
-    "composer": {
-      "name": "",
-      "name_translation": ""
-    },
     "title": "為忙碌人製作的「大嘴鳥」",
     "title_translation": "",
     "description": "",
-    "lyric_url": "https://www.youtube.com/watch?v=NNxEg8IJZhg",
-    "video_url": ""
+    "lyric_url": "",
+    "video_url": "https://www.youtube.com/watch?v=NNxEg8IJZhg"
   },
   {
     "singer": {
@@ -42,7 +27,7 @@
     "title_translation": "",
     "description": "",
     "lyric_url": "https://mojim.com/twy110507x7x3.htm",
-    "video_url": ""
+    "video_url": "https://www.youtube.com/watch?v=YSB5EZbC-Mk"
   },
   {
     "singer": {
@@ -236,8 +221,8 @@
     "title": "以一種假裝放蕩的矜持與你告別",
     "title_translation": "",
     "description": "",
-    "lyric_url": "https://www.youtube.com/watch?v=KU28BTLeonQ",
-    "video_url": ""
+    "lyric_url": "",
+    "video_url": "https://www.youtube.com/watch?v=KU28BTLeonQ"
   },
   {
     "singer": {
@@ -1153,6 +1138,21 @@
     "description": "",
     "lyric_url": "https://mojim.com/twy105980x3x3.htm",
     "video_url": ""
+  },
+  {
+    "singer": {
+      "name": "Olivia Ong",
+      "name_translation": ""
+    },
+    "composer": {
+      "name": "",
+      "name_translation": ""
+    },
+    "title": "fly me to the moon",
+    "title_translation": "",
+    "description": "",
+    "lyric_url": "https://mojim.com/twy108260x7x1.htm",
+    "video_url": "https://www.youtube.com/watch?v=tWsRSSDnY08"
   },
   {
     "singer": {
