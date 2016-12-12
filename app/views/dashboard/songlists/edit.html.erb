@@ -1,8 +1,0 @@
-<h1>Editing Songlist</h1>
-
-<%= form_for(@songlist, url: dashboard_songlist_path(@songlist), method: :patch) do |f| %>
-  <%= render 'dashboard/songlists/form/form', songlist: @songlist, f: f %>
-<% end %>
-
-<%= link_to 'Show', dashboard_songlist_path(@songlist) %> |
-<%= link_to 'Back', dashboard_songlists_path %>

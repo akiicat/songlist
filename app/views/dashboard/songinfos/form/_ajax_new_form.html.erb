@@ -1,4 +1,0 @@
-<%# params: songinfo, playlist_id %>
-<%= form_for(songinfo, url: dashboard_songinfos_path, method: :post, remote: true) do |f| %>
-  <%= render 'dashboard/songinfos/form/form', songinfo: songinfo, f: f %>
-<% end %>
