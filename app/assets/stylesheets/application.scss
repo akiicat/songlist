@@ -108,13 +108,20 @@ a {
     color: gray + 40;
   }
 
-  .icon {
+  .icon-wrapper {
     height: 22px;
+    width: 22px;
     margin-left: 10px;
+  }
 
-    &.right {
-      float: right;
-    }
+  .icon {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .right {
+    float: right;
   }
 }
 

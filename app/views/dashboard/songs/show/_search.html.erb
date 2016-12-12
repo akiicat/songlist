@@ -14,7 +14,6 @@
         <td>
           <code>
             <%= link_to edit_dashboard_singer_path(song.singer) do %>
-              <%= octicon "pencil" %>
               <%= song.singer.name_with_translation %>
             <% end %>
           </code>
@@ -22,28 +21,39 @@
         <td>
           <code>
             <%= link_to edit_dashboard_song_path(song) do %>
-              <%= octicon "pencil", class: "icon oct" %>
               <%= song.title_with_translation %>
               <span class="description"><%= song.supplement %></span>
             <% end %>
           </code>
         </td>
         <td>
-          <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你真的確定要刪除？' } do %>
-            <%= octicon "trashcan", height: "22px", class: "icon right" %>
-          <% end %>
-          <%= octicon "clippy", height: "22px", class: "icon right", "data-clippy": song.name_all %>
-
-          <% unless song.lyric_url.blank? %>
-            <%= link_to song.lyric_url, target: "_blank" do %>
-              <%= image_tag "lyrics.png", class: "icon right" %>
+          <span class="icon-wrapper right">
+            <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你真的確定要刪除？' } do %>
+              <%= octicon "trashcan", height: "22px" %>
             <% end %>
-          <% end %>
-          <% unless song.video_url.blank? %>
-            <%= link_to song.video_url, target: "_blank" do %>
-              <%= image_tag "youtube.png", class: "icon right" %>
+          </span>
+          <span class="icon-wrapper right">
+            <%= link_to edit_dashboard_song_path(song) do %>
+              <%= octicon "pencil", height: "22px" %>
             <% end %>
-          <% end %>
+          </span>
+          <span class="icon-wrapper right">
+            <%= octicon "clippy", height: "22px", class: "icon", "data-clippy": song.name_all %>
+          </span>
+          <span class="icon-wrapper right">
+            <% unless song.lyric_url.blank? %>
+              <%= link_to song.lyric_url, target: "_blank" do %>
+                <%= image_tag "lyrics.png", class: "icon" %>
+              <% end %>
+            <% end %>
+          </span>
+          <span class="icon-wrapper right">
+            <% unless song.video_url.blank? %>
+              <%= link_to song.video_url, target: "_blank" do %>
+                <%= image_tag "youtube.png", class: "icon" %>
+              <% end %>
+            <% end %>
+          </span>
         </td>
       </tr>
     <% end %>
