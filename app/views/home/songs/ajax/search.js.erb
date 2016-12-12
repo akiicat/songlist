@@ -1,3 +1,9 @@
-$("#songs").html("<%= escape_javascript(render 'home/songs/show/search' ) %>");
+<% if @songs.previous_page %>
+  $('#songs').append("<%= j render('home/songs/show/search') %>");
+<% else %>
+  $("#songs").html("<%= escape_javascript(render 'home/songs/show/search' ) %>");
+<% end %>
+
+$('#pagination').html("<%= j will_paginate(@songs) %>");
 $("#songs_count").html("<%= @songs.count %>");
 $(document).ready(clippy);
