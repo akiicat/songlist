@@ -10,6 +10,7 @@ class Dashboard::SongsController < Dashboard::ApplicationController
       format.html
       format.js   { render :file => "dashboard/songs/ajax/search.js.erb" }
       format.json { render :json => JSON.pretty_generate(@songs.map{ |s| export_hash(s) }) }
+      format.zip  { send_file SongsManager.zip, type: 'application/zip', disposition: 'attachment', filename: "songs.zip" }
     end
   end
 

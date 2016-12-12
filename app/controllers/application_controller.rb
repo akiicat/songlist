@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  after_action :history, only: [:create, :update, :destroy]
 
 private
 
@@ -23,5 +24,9 @@ private
       lyric_url: song.lyric_url.to_s,
       video_url: song.video_url.to_s,
     }
+  end
+
+  def history
+    SongsManager.git_commit
   end
 end
