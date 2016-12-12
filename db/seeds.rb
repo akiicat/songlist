@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-songs = JSON.parse(File.open("#{Rails.root}/db/seeds.json").read)
+songs = JSON.parse(File.open("#{Rails.root}/db/songs.json").read)
 
 songs.each do |s|
   s['singer']   = Singer.find_singer(s['singer']['name'], s['singer']['name_translation'])

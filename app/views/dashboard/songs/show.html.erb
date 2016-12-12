@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if @song.video_url.present? %>
+  <div class="video-wrapper">
+    <iframe style="max-width: 100%; max-height: 100%" src="<%= @song.video_url.gsub("watch?v=", "v/") %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+<% end %>
 
 <p>
   <strong>Singer:</strong>
@@ -34,6 +38,3 @@
   <strong>Video url:</strong>
   <%= @song.video_url %>
 </p>
-
-<%= link_to 'Edit', edit_dashboard_song_path(@song) %> |
-<%= link_to 'Back', dashboard_songs_path %>

@@ -2,15 +2,20 @@
   <div class="container">
     <%= form_tag dashboard_songs_path, method: :get, id: "songs_search" do %>
       <%= text_field_tag :search, params[:search], placeholder: "請輸入歌名或歌手", class: "search-form form-control input-lg" %>
-      <%= submit_tag "搜尋", name: nil, class: "search-btn btn" %>
-
-      <%= link_to new_dashboard_song_path do %>
-        <%= octicon "plus" %>
-        新增歌曲
+      <%= button_tag(type: "submit", class: "search-btn btn") do %>
+        搜尋
       <% end %>
       <%= link_to songs_path do %>
         <%= octicon "globe" %>
         發布
+      <% end %>
+      <%= link_to dashboard_songs_path(format: 'zip') do %>
+        <%= octicon "package" %>
+        匯出
+      <% end %>
+      <%= link_to new_dashboard_song_path do %>
+        <%= octicon "plus" %>
+        新增歌曲
       <% end %>
     <% end %>
   </div>
