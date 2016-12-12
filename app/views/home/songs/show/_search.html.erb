@@ -9,19 +9,19 @@
     </td>
     <td>
       <span class="icon-wrapper right">
-        <%= octicon "clippy", height: "22px", class: "icon", "data-clippy": song.name_all %>
+        <%= octicon "clippy", class: "icon", "data-clippy": song.name_all %>
       </span>
       <span class="icon-wrapper right">
         <% unless song.lyric_url.blank? %>
           <%= link_to song.lyric_url, target: "_blank" do %>
-            <%= image_tag "lyrics.svg", class: "icon" %>
+            <%= svg "lyrics" %>
           <% end %>
         <% end %>
       </span>
       <span class="icon-wrapper right">
         <% unless song.video_url.blank? %>
           <%= link_to song.video_url, target: "_blank" do %>
-            <%= image_tag "youtube.svg", class: "icon" %>
+            <%= svg "youtube" %>
           <% end %>
         <% end %>
       </span>
