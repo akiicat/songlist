@@ -1,61 +1,48 @@
-<table class="table table-striped">
-  <col width="30%">
-  <col width="50%">
-  <thead>
-    <tr>
-      <th>歌手</th>
-      <th>歌名</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @songs.each do |song| %>
-      <tr class="tr-wrapper">
-        <td>
-          <code>
-            <%= link_to edit_dashboard_singer_path(song.singer) do %>
-              <%= song.singer.name_with_translation %>
-            <% end %>
-          </code>
-        </td>
-        <td>
-          <code>
-            <%= link_to edit_dashboard_song_path(song) do %>
-              <%= song.title_with_translation %>
-              <span class="description"><%= song.supplement %></span>
-            <% end %>
-          </code>
-        </td>
-        <td>
-          <span class="icon-wrapper right">
-            <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你真的確定要刪除？' } do %>
-              <%= octicon "trashcan", height: "22px" %>
-            <% end %>
-          </span>
-          <span class="icon-wrapper right">
-            <%= link_to edit_dashboard_song_path(song) do %>
-              <%= octicon "pencil", height: "22px" %>
-            <% end %>
-          </span>
-          <span class="icon-wrapper right">
-            <%= octicon "clippy", height: "22px", class: "icon", "data-clippy": song.name_all %>
-          </span>
-          <span class="icon-wrapper right">
-            <% unless song.lyric_url.blank? %>
-              <%= link_to song.lyric_url, target: "_blank" do %>
-                <%= image_tag "lyrics.png", class: "icon" %>
-              <% end %>
-            <% end %>
-          </span>
-          <span class="icon-wrapper right">
-            <% unless song.video_url.blank? %>
-              <%= link_to song.video_url, target: "_blank" do %>
-                <%= image_tag "youtube.png", class: "icon" %>
-              <% end %>
-            <% end %>
-          </span>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @songs.each do |song| %>
+  <tr class="tr-wrapper">
+    <td>
+      <code>
+        <%= link_to edit_dashboard_singer_path(song.singer) do %>
+          <%= song.singer.name_with_translation %>
+        <% end %>
+      </code>
+    </td>
+    <td>
+      <code>
+        <%= link_to edit_dashboard_song_path(song) do %>
+          <%= song.title_with_translation %>
+          <span class="description"><%= song.supplement %></span>
+        <% end %>
+      </code>
+    </td>
+    <td>
+      <span class="icon-wrapper right">
+        <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你真的確定要刪除？' } do %>
+          <%= octicon "trashcan", height: "22px" %>
+        <% end %>
+      </span>
+      <span class="icon-wrapper right">
+        <%= link_to edit_dashboard_song_path(song) do %>
+          <%= octicon "pencil", height: "22px" %>
+        <% end %>
+      </span>
+      <span class="icon-wrapper right">
+        <%= octicon "clippy", height: "22px", class: "icon", "data-clippy": song.name_all %>
+      </span>
+      <span class="icon-wrapper right">
+        <% unless song.lyric_url.blank? %>
+          <%= link_to song.lyric_url, target: "_blank" do %>
+            <%= image_tag "lyrics.png", class: "icon" %>
+          <% end %>
+        <% end %>
+      </span>
+      <span class="icon-wrapper right">
+        <% unless song.video_url.blank? %>
+          <%= link_to song.video_url, target: "_blank" do %>
+            <%= image_tag "youtube.png", class: "icon" %>
+          <% end %>
+        <% end %>
+      </span>
+    </td>
+  </tr>
+<% end %>
