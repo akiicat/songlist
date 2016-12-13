@@ -1,7 +1,7 @@
 <% if @songs.previous_page %>
   $('#songs').append("<%= j render('dashboard/songs/show/search') %>");
 <% else %>
-  $("#songs").html("<%= escape_javascript(render 'dashboard/songs/show/search' ) %>");
+  $("#songs").html("<%= j render('dashboard/songs/show/search') %>");
 <% end %>
 
 $('#pagination').html("<%= j will_paginate(@songs) %>");
