@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require sweetalert.min
 function searching() {
   $('#songs_search[data-search-turbolinks=true]').attr('data-search-turbolinks', false).children('input').keyup(function() {
     $.get($("#songs_search").attr("action"), $("#songs_search").serialize(), null, "script");
