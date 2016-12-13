@@ -10,14 +10,14 @@ module SongsManager
     `mkdir -p #{@path}`
     self.exec "git init"
 
-    config = <<~EOF
+    config = %{
       [user]
               name = System
               email = System
-    EOF
-    ignore = <<~EOF
+    }
+    ignore = %{
       *.DS_Store
-    EOF
+    }
     File.write("#{@path}/.gitconfig", config)
     File.write("#{@path}/.gitignore", ignore)
 
