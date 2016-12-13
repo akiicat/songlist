@@ -17,7 +17,7 @@
     </td>
     <td>
       <span class="icon-wrapper right">
-        <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你真的確定要刪除？' } do %>
+        <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
           <%= octicon "trashcan", class: "icon" %>
         <% end %>
       </span>
