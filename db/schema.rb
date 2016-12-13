@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20161115193548) do
   create_table "singers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "name_translation"
-    t.integer  "count_of_singer_songs"
-    t.integer  "count_of_composer_songs"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "count_of_singer_songs",   default: 0
+    t.integer  "count_of_composer_songs", default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "songs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

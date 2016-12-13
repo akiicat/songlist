@@ -28,10 +28,6 @@ class Singer < ApplicationRecord
   end
 
   def self.find_singer(name, trans = nil)
-    name.to_s.strip!
-    trans.to_s.strip!
-    rtn = Singer.find_by(name: name, name_translation: trans) ||
-          Singer.create(name: name, name_translation: trans, count_of_singer_songs: 0, count_of_composer_songs: 0)
-    rtn
+    Singer.find_or_create_by(name: name.to_s.strip, name_translation: trans.to_s.strip)
   end
 end
