@@ -16,7 +16,7 @@ test:
   database: leggy_test
 
 production:
-  <<: *default
-  database: <%= ENV['DATABASE_URL'] %>
-  # pool: 5
-  # url: <%= ENV['DATABASE_URL'] %>
+  # <<: *default
+  # database: <%= ENV['DATABASE_URL'] %>
+  pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
