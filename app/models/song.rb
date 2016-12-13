@@ -27,7 +27,7 @@ class Song < ApplicationRecord
     if search.blank?
       all
     else
-      joins(:singer, :composer).where('CONCAT(songs.title, singers.name, composers_songs.name) ILIKE all (array[:search])', search: search.split.map{ |s| "%#{s}%" })
+      joins(:singer, :composer).where('CONCAT(songs.title, \' \', singers.name, \' \', composers_songs.name) ILIKE all (array[:search])', search: search.split.map{ |s| "%#{s}%" })
     end
   end
 end
