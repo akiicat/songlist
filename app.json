@@ -5,7 +5,7 @@
   "repository": "https://github.com/akiicat/leggy",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate db:seed"
+    "postdeploy": "RAILS_ENV=production bundle exec rake db:migrate db:seed"
   },
   "env": {
     "RAILS_ENV": "production",
