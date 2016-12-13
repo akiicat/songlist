@@ -10,18 +10,16 @@ class Song < ApplicationRecord
   default_scope { includes(:singer, :composer).order("lower(singers.name)", "title").references(:singers) }
 
   def title_with_translation
-    [self.title, self.title_translation].reject{ |x| x.blank? }.join(" / ").strip
+    [self.title, self.title_translation].reject{ |x| x.blank? }.join(" / ")
   end
 
   def name_all
-    results  = [self.singer.name_with_translation,
-                self.title_with_translation].reject{ |x| x.blank? }.join(" - ").strip
-    results += " #{supplement}"
-    results
+    results = [self.singer.name_with_translation, self.title_with_translation].reject{ |x| x.blank? }.join(" - ")
+    [results, supplement].reject{ |x| x.blank? }.join(" ")
   end
 
   def supplement
-    s = "#{self.composer.name_with_translation} #{self.description}".strip
+    s = [self.composer.name_with_translation, self.description].reject{ |x| x.blank? }.join(" ")
     (s.blank?) ? "" : "(#{s})"
   end
 

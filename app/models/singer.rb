@@ -6,7 +6,7 @@ class Singer < ApplicationRecord
   after_update :check_singer
 
   def name_with_translation
-    [self.name, self.name_translation].reject{ |x| x.blank? }.join(" / ").strip
+    [self.name, self.name_translation].reject{ |x| x.blank? }.join(" / ")
   end
 
   def check_singer
