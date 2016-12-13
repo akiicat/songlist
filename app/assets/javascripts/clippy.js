@@ -1,5 +1,6 @@
 function clippy() {
-  $('[data-clippy]').click(function(e) {
+  $('[data-clippy-turbolinks=true]').attr('data-clippy-turbolinks', false).click(function(e) {
+    e.preventDefault();
     var song_name = $(this).data('clippy');
     copyTextToClipboard(song_name);
   });
@@ -25,5 +26,4 @@ function copyTextToClipboard(text) {
   document.body.removeChild(textArea);
 }
 
-$(document).ready(clippy);
-$(document).on('turbolinks:load', clippy);
+$(document).on('ready turbolinks:load', clippy);

@@ -15,11 +15,10 @@
 //= require turbolinks
 //= require_tree .
 function searching() {
-  $("#songs_search input").keyup(function() {
+  $('#songs_search[data-search-turbolinks=true]').attr('data-search-turbolinks', false).children('input').keyup(function() {
     $.get($("#songs_search").attr("action"), $("#songs_search").serialize(), null, "script");
     return false;
   });
 }
 
-$(document).ready(searching);
-$(document).on('turbolinks:load', searching);
+$(document).on('ready turbolinks:load', searching);
