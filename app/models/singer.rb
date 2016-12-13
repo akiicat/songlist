@@ -10,18 +10,18 @@ class Singer < ApplicationRecord
   end
 
   def check_singer
-    repeat_singers = Singer.unscoped.select(:name,:name_translation).group(:name,:name_translation).having("count(*) > 1")
+    repeat_singers = Singer.unscoped.select(:name, :name_translation).group(:name, :name_translation).having("count(*) > 1")
     repeat_singers.each do |singer|
-      singers = Singer.where(name: singer.name, name_translation: singer.name_translation).to_a
-      target_id = singers.shift.id
+      singer_ids = Singer.where(name: singer.name, name_translation: singer.name_translation).pluck(:id)
 
-      singers.each do |s|
-        Song.unscoped.where(singer_id: s.id).update_all(singer_id: target_id)
-        Song.unscoped.where(composer_id: s.id).update_all(composer_id: target_id)
-        Singer.reset_counters(s.id, :songs, :composers_songs)
+      singers_ids[1..-1].each do |id|
+        Song.unscoped.where(  singer_id: id).update_all(  singer_id: singer_ids[0])
+        Song.unscoped.where(composer_id: id).update_all(composer_id: singer_ids[0])
       end
 
-      Singer.reset_counters(target_id, :songs, :composers_songs)
+      singer_ids.each do |id|
+        Singer.reset_counters(id, :songs, :composers_songs)
+      end
     end
 
     Singer.where(count_of_singer_songs: 0, count_of_composer_songs: 0).delete_all
