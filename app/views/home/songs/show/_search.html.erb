@@ -8,17 +8,17 @@
       </code>
     </td>
     <td>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-turbolinks": true  %>
       </span>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <% unless song.lyric_url.blank? %>
           <%= link_to song.lyric_url, target: "_blank" do %>
             <%= svg "lyrics" %>
           <% end %>
         <% end %>
       </span>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <% unless song.video_url.blank? %>
           <%= link_to song.video_url, target: "_blank" do %>
             <%= svg "youtube" %>

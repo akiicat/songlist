@@ -16,27 +16,27 @@
       </code>
     </td>
     <td>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
           <%= octicon "trashcan", class: "icon" %>
         <% end %>
       </span>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <%= link_to edit_dashboard_song_path(song) do %>
           <%= octicon "pencil", class: "icon" %>
         <% end %>
       </span>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-turbolinks": true %>
       </span>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <% unless song.lyric_url.blank? %>
           <%= link_to song.lyric_url, target: "_blank" do %>
             <%= svg "lyrics" %>
           <% end %>
         <% end %>
       </span>
-      <span class="icon-wrapper right">
+      <span class="icon-wrapper right pointer">
         <% unless song.video_url.blank? %>
           <%= link_to song.video_url, target: "_blank" do %>
             <%= svg "youtube" %>
