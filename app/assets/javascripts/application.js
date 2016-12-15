@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require sweetalert2.min
 
 //Override the default confirm dialog by rails
 $.rails.allowAction = function(link){
@@ -38,16 +39,14 @@ $.rails.showConfirmationDialog = function(link){
     showCancelButton: true,
     confirmButtonColor: "#DD6B55",
     confirmButtonText: "沒錯！就這樣辦！",
+    cancelButtonColor: "#AAA",
     cancelButtonText: "取消",
-    closeOnConfirm: false,
-    closeOnCancel: true,
     showLoaderOnConfirm: true,
-    allowOutsideClick: true
-  },
-  function(isConfirm){
-    if (isConfirm) {
-      $.rails.confirmed(link);
-    } else {
-    }
+    allowOutsideClick: true,
+    reverseButtons: true
+  }).then(function() {
+    $.rails.confirmed(link);
+  }, function(dismiss) {
+    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
   });
 }
