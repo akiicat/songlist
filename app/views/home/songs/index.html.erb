@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody id="songs">
-    <%= render "home/songs/show/search" %>
+    <%= render partial: "home/songs/show/search", collection: @songs, as: :song %>
   </tbody>
 </table>
 
