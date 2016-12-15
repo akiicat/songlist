@@ -1,6 +1,6 @@
 <div class="search-wrapper bg-gray-light">
   <div class="container">
-    <%= form_tag songs_path, method: :get, id: "songs_search", "data-search-turbolinks": true do %>
+    <%= form_tag songs_path, method: :get, id: "songs_search" do %>
       <%= text_field_tag :search, params[:search], placeholder: "請輸入歌名或歌手", class: "search-form form-control input-lg" %>
       <%= submit_tag "搜尋", name: nil, class: "search-btn btn" %>
     <% end %>

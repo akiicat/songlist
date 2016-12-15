@@ -26,4 +26,4 @@ function copyTextToClipboard(text) {
   document.body.removeChild(textArea);
 }
 
-$(document).on('ready turbolinks:load', clippy);
+$(document).on('ready', clippy);
