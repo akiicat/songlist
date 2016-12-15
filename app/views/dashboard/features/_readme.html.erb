@@ -1,0 +1,37 @@
+<div id="doc" class="disable">
+  <div class="markdown-body container-fluid">
+    <h2>搜尋</h2>
+    <p>在<strong>搜尋</strong>的地方輸入你想要找的歌手或歌曲，可以使用<strong>空白</strong>隔開。</p>
+    <%= image_tag "readme_1.png" %>
+    <%= image_tag "readme_2.png" %>
+
+    <h2>編輯/刪除</h2>
+    <p>每首歌曲的右邊有<strong> <%= octicon "pencil" %> </strong>編輯與<strong> <%= octicon "trashcan" %> </strong>刪除的符號，可以修改單一首歌曲。</p>
+    <%= image_tag "readme_3.png" %>
+    <p>直接點擊歌手的話可以同時修改所有歌手的名稱。</p>
+    <%= image_tag "readme_4.png" %>
+    <p>目前管理頁面沒有登入頁面的保護，不過使用的人數少加上登入頁面，反而是增加自己的麻煩，有需求或是人數多的時候自然會加上的 &gt;_O。</p>
+
+    <h2>歌單</h2>
+    <p>個人還是覺得 Vod 的歌單用記事本比較好打xDDDD。</p>
+    <p>所以只有在旁邊加個<strong> <%= octicon "clippy" %> 複製</strong>的按鈕。</p>
+
+    <h2>匯出</h2>
+    <p>如果想要<strong> JSON </strong>格式的檔案，可以直接在網址後面加上 <code>.json</code> 就會拿到<strong> JSON </strong>檔案囉。
+      <%= link_to songs_path(format: :json) do %>
+        <%= octicon "link-external" %>
+      <% end %>
+    </p>
+    <p>或者是按網頁右上角的<strong> <%= octicon "package" %> 匯出</strong>，裡面有包含 git 的資料，可以看到之前的修改記錄。</p>
+
+    <h2>公開</h2>
+    <p>主要是給想要製作歌曲清單的人，能方便搜尋使用的，沒有任何新增修改刪除的權限。</p>
+
+    <h2>Github</h2>
+    <p>想要我的原始碼嗎？想要的話可以全部給你，去找吧！我把所有的原始碼都放在那裡了。
+      <%= link_to 'https://github.com/akiicat/leggy' do %>
+        <%= octicon "mark-github" %>
+      <% end %>
+    </p>
+  </div>
+</div>

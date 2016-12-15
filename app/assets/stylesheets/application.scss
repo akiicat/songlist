@@ -16,6 +16,8 @@
 
 @import "primer";
 @import "sweetalert";
+@import "github-gist.min";
+@import "markdown";
 
 .search-wrapper {
   position: fixed;
@@ -142,6 +144,10 @@ header {
 .flash {
   margin-top: 20px;
 }
-.pagination {
+.pagination, .disable {
   display: none;
+}
+.markdown-body {
+  width: 75%;
+  margin: auto;
 }

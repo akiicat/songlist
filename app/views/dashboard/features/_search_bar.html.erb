@@ -13,6 +13,10 @@
         <%= octicon "package" %>
         匯出
       <% end %>
+      <%= link_to '#', id: 'readme' do %>
+        <%= octicon "question" %>
+        說明
+      <% end %>
       <%= link_to new_dashboard_song_path do %>
         <%= octicon "plus" %>
         新增歌曲
@@ -20,3 +24,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render partial: 'dashboard/features/readme' %>
