@@ -1,48 +1,50 @@
-<% @songs.each do |song| %>
-  <tr class="tr-wrapper">
-    <td>
-      <code>
-        <%= link_to edit_dashboard_singer_path(song.singer) do %>
-          <%= song.singer.name_with_translation %>
-        <% end %>
-      </code>
-    </td>
-    <td>
-      <code>
-        <%= link_to edit_dashboard_song_path(song) do %>
-          <%= song.title_with_translation %>
-          <span class="description"><%= song.supplement %></span>
-        <% end %>
-      </code>
-    </td>
-    <td>
-      <span class="icon-wrapper right pointer">
-        <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
-          <%= octicon "trashcan", class: "icon" %>
-        <% end %>
-      </span>
-      <span class="icon-wrapper right pointer">
-        <%= link_to edit_dashboard_song_path(song) do %>
-          <%= octicon "pencil", class: "icon" %>
-        <% end %>
-      </span>
-      <span class="icon-wrapper right pointer">
-        <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-duplicate": false %>
-      </span>
-      <span class="icon-wrapper right pointer">
-        <% unless song.lyric_url.blank? %>
-          <%= link_to song.lyric_url, target: "_blank" do %>
-            <%= svg "lyrics" %>
+<% cache @songs, expires_in: 2.hours do %>
+  <% @songs.each do |song| %>
+    <tr class="tr-wrapper">
+      <td>
+        <code>
+          <%= link_to edit_dashboard_singer_path(song.singer) do %>
+            <%= song.singer.name_with_translation %>
           <% end %>
-        <% end %>
-      </span>
-      <span class="icon-wrapper right pointer">
-        <% unless song.video_url.blank? %>
-          <%= link_to song.video_url, target: "_blank" do %>
-            <%= svg "youtube" %>
+        </code>
+      </td>
+      <td>
+        <code>
+          <%= link_to edit_dashboard_song_path(song) do %>
+            <%= song.title_with_translation %>
+            <span class="description"><%= song.supplement %></span>
           <% end %>
-        <% end %>
-      </span>
-    </td>
-  </tr>
+        </code>
+      </td>
+      <td>
+        <span class="icon-wrapper right pointer">
+          <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
+            <%= octicon "trashcan", class: "icon" %>
+          <% end %>
+        </span>
+        <span class="icon-wrapper right pointer">
+          <%= link_to edit_dashboard_song_path(song) do %>
+            <%= octicon "pencil", class: "icon" %>
+          <% end %>
+        </span>
+        <span class="icon-wrapper right pointer">
+          <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-duplicate": false %>
+        </span>
+        <span class="icon-wrapper right pointer">
+          <% unless song.lyric_url.blank? %>
+            <%= link_to song.lyric_url, target: "_blank" do %>
+              <%= svg "lyrics" %>
+            <% end %>
+          <% end %>
+        </span>
+        <span class="icon-wrapper right pointer">
+          <% unless song.video_url.blank? %>
+            <%= link_to song.video_url, target: "_blank" do %>
+              <%= svg "youtube" %>
+            <% end %>
+          <% end %>
+        </span>
+      </td>
+    </tr>
+  <% end %>
 <% end %>
