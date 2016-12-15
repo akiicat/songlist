@@ -1,0 +1,9 @@
+runtime: ruby
+env: flex
+entrypoint: bundle exec rackup -p $PORT
+env_variables:
+  RACK_ENV: 'production'
+  RAILS_ENV: 'production'
+  RAILS_SERVE_STATIC_FILES: 'true'
+  SECRET_KEY_BASE: <YOUR_SECRET_KEY>
+  DATABASE_URL: <YOUR_DATABASE_URL>
