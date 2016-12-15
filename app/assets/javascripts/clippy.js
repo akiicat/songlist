@@ -1,5 +1,5 @@
 function clippy() {
-  $('[data-clippy-turbolinks=true]').attr('data-clippy-turbolinks', false).click(function(e) {
+  $('[data-clippy-duplicate=false]').attr('data-clippy-duplicate', true).click(function(e) {
     e.preventDefault();
     var song_name = $(this).data('clippy');
     copyTextToClipboard(song_name);

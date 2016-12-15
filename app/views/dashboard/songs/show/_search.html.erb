@@ -27,7 +27,7 @@
         <% end %>
       </span>
       <span class="icon-wrapper right pointer">
-        <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-turbolinks": true %>
+        <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-duplicate": false %>
       </span>
       <span class="icon-wrapper right pointer">
         <% unless song.lyric_url.blank? %>
