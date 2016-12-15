@@ -93,23 +93,23 @@ $table-bg-accent: #f9f9f9;
 
 a {
   color: black;
+
+  .description {
+    color: gray;
+  }
+
   &:hover {
     color: black + 90;
     text-decoration: none;
+    .description {
+      color: gray + 40;
+    }
   }
 }
 
 .tr-wrapper {
   code {
     font-size: 14px;
-  }
-
-  .description {
-    color: gray;
-  }
-
-  a .description:hover {
-    color: gray + 40;
   }
 
   .icon-wrapper {
