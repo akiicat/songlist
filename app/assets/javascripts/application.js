@@ -43,6 +43,7 @@ $.rails.showConfirmationDialog = function(link){
     cancelButtonText: "取消",
     showLoaderOnConfirm: true,
     allowOutsideClick: true,
+    showCloseButton: true,
     reverseButtons: true
   }).then(function() {
     $.rails.confirmed(link);
