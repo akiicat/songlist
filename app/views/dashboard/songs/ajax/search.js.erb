@@ -1,7 +1,7 @@
 <% if @songs.previous_page %>
-  $('#songs').append("<%= j render('dashboard/songs/show/search') %>");
+  $('#songs').append("<%= j render(partial: 'dashboard/songs/show/search', collection: @songs, as: :song) %>");
 <% else %>
-  $("#songs").html("<%= j render('dashboard/songs/show/search') %>");
+  $('#songs').html("<%= j render(partial: 'dashboard/songs/show/search', collection: @songs, as: :song) %>");
 <% end %>
 
 $('#pagination').html("<%= j will_paginate(@songs) %>");
