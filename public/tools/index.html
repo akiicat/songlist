@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+	<meta charset="UTF-8">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<title>Song</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="jquery.easy-autocomplete.min.js"></script>
+	<link href="easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+
+	<style type="text/css">
+		body{
+			margin: 0px;
+		}
+		input{
+			display: block;
+			width: 300px;
+			height: 30px;
+			padding:3px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.content{
+			width: 40%;
+			font-size: 15px;
+			display: inline-block;
+			vertical-align: top;
+			padding-left: 5%;
+			padding-right: 5%;
+			height: 100%;
+			padding-top: 5%;
+		}
+		.preview{
+			width: 59%;
+			display: inline-block;
+			vertical-align: top;
+			height: 100%;
+		}
+		#project-label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 1em;
+		}
+		#project-description {
+			margin: 0;
+			padding: 0;
+		}
+		#wiki{
+			width: 100%;
+			border: none;
+			height: 100%;
+		}
+		#uta{
+			border:none;
+		}
+		#song{
+			border:none;
+		}
+		.timer{
+			display: inline-block;
+			width: 50px;
+		}
+	</style>
+
+
+</head>
+<body style="height: 100%">
+	<div class="content">
+		<a href="addSong.html">點我去新增歌曲</a><br /><br />
+		開始時間：
+		<input class="timer form-control" id="hour">：<input class="timer form-control" id="minute">：<input class="timer form-control" id="second"><br />
+		輸入歌名：
+		<input class="form-control" id="project">
+		唄：<input class="form-control" id="uta" disabled>
+		作曲：<input class="form-control" id="song" disabled><br />
+		<input type="hidden" id="url">
+		<button class="btn btn-default" onclick="addSong()">新增</button>
+		<br /><br />
+
+		<pre id="songList"></pre>
+
+	</div>
+	<div class="preview">
+		<iframe id="wiki"></iframe>
+	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+			function addSong(){
+				hour = $("#hour").val();
+				minute = $("#minute").val();
+				second = $("#second").val();
+				if( hour == ""){
+					hour = 0;
+				}
+				if( minute == ""){
+					minute = 0;
+				}
+				if( second == ""){
+					second = 0;
+				}
+				timer = hour + ":" + minute + ":" + second;
+				songTitle = $("#project").val();
+				uta = $("#uta").val();
+				song = $("#song").val();
+				url = $("#url").val();
+
+				toAdd = hour + ":" + minute + ":" + second + " " + uta + " - " + songTitle + "(" + song + ")" + "<br />"
+				songLister[timer] = toAdd;
+
+				keys = Object.keys(songLister);
+				len = keys.length;
+				keys.sort();
+				$("#songList").html("");
+				for (i = 0; i < len; i++) {
+					k = keys[i];
+					nowList = $("#songList").append(songLister[k]);
+				}
+				$("#hour").val("");
+				$("#minute").val("");
+				$("#second").val("");
+				$("#project").val("");
+				$("#uta").val("");
+				$("#song").val("");
+				$("#url").val("");
+			}
+
+			var songLister = {};
+
+			var options = {
+				url: "songinfo.json",
+				getValue: function(element) {
+			        return element.songTitle;
+			    },
+				list: {
+					match: {
+					  enabled: true
+					},
+					maxNumberOfElements: 10,
+					onSelectItemEvent: function() {
+			            var vocaloid = $("#project").getSelectedItemData().uta
+			        	$("#uta").val(vocaloid).trigger("change");
+			        	var songwriter = $("#project").getSelectedItemData().song;
+			        	$("#song").val(songwriter).trigger("change");
+			        	var songUrl = $("#project").getSelectedItemData().url;
+			        	$("#wiki").attr("src",songUrl);
+			        	$("#url").val(songUrl).trigger("change");
+			        },
+				},
+				template: {
+					type: "custom",
+					method: function(value, item) {
+					  return  value + " ( " + item.uta+ " ) <br /> " + item.song;
+					}
+				},
+				theme: "square"
+			};
+
+			$("#project").easyAutocomplete(options);
+
+	</script>
+</body>
+</html>
