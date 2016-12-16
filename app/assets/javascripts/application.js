@@ -15,6 +15,7 @@
 // require turbolinks
 //= require_tree .
 //= require sweetalert2.min
+//= require preloader
 
 //Override the default confirm dialog by rails
 $.rails.allowAction = function(link){
