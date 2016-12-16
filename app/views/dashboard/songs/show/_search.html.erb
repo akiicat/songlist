@@ -28,14 +28,14 @@
     <span class="icon-wrapper right pointer">
       <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-duplicate": false %>
     </span>
-    <span class="icon-wrapper right pointer">
+    <span class="icon-wrapper right">
       <% unless song.lyric_url.blank? %>
         <%= link_to song.lyric_url, target: "_blank" do %>
           <%= svg "lyrics" %>
         <% end %>
       <% end %>
     </span>
-    <span class="icon-wrapper right pointer">
+    <span class="icon-wrapper right">
       <% unless song.video_url.blank? %>
         <%= link_to song.video_url, target: "_blank" do %>
           <%= svg "youtube" %>
