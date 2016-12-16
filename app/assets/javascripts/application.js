@@ -17,13 +17,6 @@
 //= require sweetalert2.min
 //= require preloader
 
-window.smartlook||(function(d) {
-var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-c.charset='utf-8';c.src='//rec.smartlook.com/recorder.js';h.appendChild(c);
-})(document);
-smartlook('init', '6eea073a87e0007c97058bd1db9753817ef06cf6');
-
 //Override the default confirm dialog by rails
 $.rails.allowAction = function(link){
   if (link.data("confirm") == undefined){
