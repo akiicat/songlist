@@ -27,6 +27,10 @@ class Song < ApplicationRecord
     all.as_json(except: [:id, :singer_id, :composer_id, :created_at, :updated_at], include: { singer: { only: [:name, :name_translation] }, composer: { only: [:name, :name_translation] } } )
   end
 
+  def self.render
+    all.as_json(except: [:created_at, :updated_at], include: { singer: { only: [:name, :name_translation] }, composer: { only: [:name, :name_translation] } } )
+  end
+
   def self.search(search)
     if search.blank?
       all
