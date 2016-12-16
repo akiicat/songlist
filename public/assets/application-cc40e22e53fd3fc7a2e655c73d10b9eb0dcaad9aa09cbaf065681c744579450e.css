@@ -11332,7 +11332,125 @@ body.modal-open {
   padding-right: 0 !important;
 }
 
-/* line 23, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 1, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/preloader.css */
+span#hold {
+  color: white;
+  top: 40%;
+  left: 30%;
+  position: absolute;
+  z-index: 2;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+/* line 10, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/preloader.css */
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 2px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+
+/* line 20, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/preloader.css */
+#hold {
+  position: absolute;
+  -webkit-animation: spin 10s linear infinite;
+  animation: spin 10s linear infinite;
+  left: 50%;
+  margin: 75px 0;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes osc {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@keyframes osc {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rainbow {
+  0% {
+    background: #df2020;
+  }
+  25% {
+    background: #80df20;
+  }
+  50% {
+    background: #20dfdf;
+  }
+  75% {
+    background: #8020df;
+  }
+  100% {
+    background: #df2020;
+  }
+}
+@keyframes rainbow {
+  0% {
+    background: #df2020;
+  }
+  25% {
+    background: #80df20;
+  }
+  50% {
+    background: #20dfdf;
+  }
+  75% {
+    background: #8020df;
+  }
+  100% {
+    background: #df2020;
+  }
+}
+/* line 24, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper {
   position: fixed;
   width: 100%;
@@ -11340,23 +11458,23 @@ body.modal-open {
   top: 0;
   margin: 0;
 }
-/* line 30, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 31, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container {
   padding: 10px 0;
 }
-/* line 32, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 33, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container .search-form {
   width: 300px;
   margin: 0 10px 0 0;
 }
-/* line 36, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 37, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container .search-btn {
   width: 75px;
   left: 0;
   right: 0;
   margin: 0 10px 0 0;
 }
-/* line 42, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 43, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container a {
   line-height: 34px;
   float: right;
@@ -11364,18 +11482,18 @@ body.modal-open {
   margin: 0 10px 0 0;
 }
 
-/* line 51, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 52, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .main {
   margin-top: 54px;
 }
 
-/* line 62, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 63, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
-/* line 67, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 68, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table th,
 .table td {
   text-align: left;
@@ -11383,94 +11501,94 @@ body.modal-open {
   vertical-align: top;
   border-top: 0px solid #ddd;
 }
-/* line 75, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 76, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table thead th {
   vertical-align: bottom;
   border-bottom: 0px solid #ddd;
 }
-/* line 80, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 81, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table tbody + tbody {
   border-top: 0px solid #ddd;
 }
-/* line 84, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 85, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table .table {
   background-color: transparent;
 }
 
-/* line 90, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 91, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
 
-/* line 95, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 96, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 a {
   color: black;
 }
-/* line 97, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 99, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+a .description {
+  color: gray;
+}
+/* line 103, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 a:hover {
   color: #5a5a5a;
   text-decoration: none;
 }
+/* line 106, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+a:hover .description {
+  color: #a8a8a8;
+}
 
-/* line 104, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 113, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper code {
   font-size: 14px;
 }
-/* line 108, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
-.tr-wrapper .description {
-  color: gray;
-}
-/* line 112, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
-.tr-wrapper a .description:hover {
-  color: #a8a8a8;
-}
-/* line 116, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 117, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper .icon-wrapper {
   height: 22px;
   width: 22px;
   margin-left: 10px;
 }
-/* line 122, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 123, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper .icon {
   width: 100%;
   height: 100%;
 }
-/* line 127, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 128, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper .right {
   float: right;
 }
 
-/* line 132, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 133, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .pointer {
   cursor: pointer;
 }
 
-/* line 136, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 137, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 header {
   margin-top: 20px;
 }
 
-/* line 139, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 140, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .field {
   margin-top: 20px;
 }
 
-/* line 142, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 143, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .actions {
   margin-top: 20px;
 }
 
-/* line 145, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 146, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .flash {
   margin-top: 20px;
 }
 
-/* line 148, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 149, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .pagination, .disable {
   display: none;
 }
 
-/* line 151, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 152, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .markdown-body {
   width: 75%;
   margin: auto;
