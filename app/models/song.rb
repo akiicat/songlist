@@ -37,7 +37,7 @@ class Song < ApplicationRecord
                   singer:   { only: [], methods: [:name_with_translation] },
                   composer: { only: [], methods: [:name_with_translation] }
                 },
-                methods: [:name_all, :title_with_translation] )
+                methods: [:name_all, :title_with_translation, :supplement] )
   end
 
   def self.search(search)
