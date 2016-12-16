@@ -24,11 +24,20 @@ class Song < ApplicationRecord
   end
 
   def self.export
-    all.as_json(except: [:id, :singer_id, :composer_id, :created_at, :updated_at], include: { singer: { only: [:name, :name_translation] }, composer: { only: [:name, :name_translation] } } )
+    all.as_json(except: [:id, :singer_id, :composer_id, :created_at, :updated_at],
+                include: {
+                  singer:   { only: [:name, :name_translation] },
+                  composer: { only: [:name, :name_translation] }
+                } )
   end
 
   def self.render
-    all.as_json(except: [:created_at, :updated_at], include: { singer: { only: [:name, :name_translation] }, composer: { only: [:name, :name_translation] } } )
+    all.as_json(only: [:id, :singer_id, :lyric_url, :video_url],
+                include: {
+                  singer:   { only: [], methods: [:name_with_translation] },
+                  composer: { only: [], methods: [:name_with_translation] }
+                },
+                methods: [:name_all, :title_with_translation] )
   end
 
   def self.search(search)
