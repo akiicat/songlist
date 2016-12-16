@@ -41,14 +41,58 @@ var json = jQuery.parseJSON("<%= raw(j render(text: @songs.render.to_json)) %>")
         </span>
       </td>
     </tr>`);
-
-
-
-    //$('#songs').append("[{\"title\"=>\"等你\", \"title_translation\"=>\"\", \"description\"=>\"\", \"lyric_url\"=>\"https://mojim.com/twy110507x7x3.htm\", \"video_url\"=>\"https://www.youtube.com/watch?v=YSB5EZbC-Mk\", \"singer\"=>{\"name\"=>\"A-lin\", \"name_translation\"=>\"\"}, \"composer\"=>{\"name\"=>\"\", \"name_translation\"=>\"\"}}]")
   });
 <% else %>
-  var rtn = "<%= j render(partial: 'dashboard/songs/show/search', collection: @songs, as: :song) %>"
-  $('#songs').html(rtn);
+  $.each(json, function(arrayID,song) {
+    var data = `<tr class=\"tr-wrapper\">
+      <td>
+        <code>
+          <a href=\"/dashboard/singers/` + song.singer_id + `\">
+            ` + song.singer.name + `
+          </a>
+        </code>
+      </td>
+      <td>
+        <code>
+          <a href=\"/dashboard/songs/` + song.id + `/edit\">
+            ` + song.title + `
+            <span class=\"description\">` + song.composer.name + `</span>
+          </a>
+        </code>
+      </td>
+      <td>
+        <span class=\"icon-wrapper right pointer\">
+          <a data-confirm=\"你沒有辦法復原刪除後的歌曲！\" rel=\"nofollow\" data-method=\"delete\" href=\"/dashboard/songs/7b2f675d-30d1-492b-8aa1-3c156ab9a5b3\">
+            <svg class=\"octicon octicon-trashcan icon\" viewBox=\"0 0 12 16\" version=\"1.1\" width=\"12\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z\"></path></svg>
+          </a>
+        </span>
+        <span class=\"icon-wrapper right pointer\">
+          <a href=\"/dashboard/songs/7b2f675d-30d1-492b-8aa1-3c156ab9a5b3/edit\">
+            <svg class=\"octicon octicon-pencil icon\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z\"></path></svg>
+          </a>
+        </span>
+        <span class=\"icon-wrapper right pointer\">
+          <svg class=\"octicon octicon-clippy icon\" data-clippy=\"IA - アヤノの幸福理論 (じん/自然の敵P)\" data-clippy-duplicate=\"true\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z\"></path></svg>
+        </span>
+        <span class=\"icon-wrapper right pointer\">
+          <a target=\"_blank\" href=\"http://www5.atwiki.jp/hmiku/pages/25204.html\">
+            <svg version=\"1.1\" id=\"lyric\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\"> <path d=\"M199,89.1H52c-6.6,0-12,5.8-12,13s5.4,13,12,13h147c6.6,0,12-5.8,12-13S205.6,89.1,199,89.1z\"></path> <path d=\"M199,150.1H52c-6.6,0-12,5.8-12,13s5.4,13,12,13h147c6.6,0,12-5.8,12-13S205.6,150.1,199,150.1z\"></path> <path d=\"M199,211.1H52c-6.6,0-12,5.8-12,13s5.4,13,12,13h147c6.6,0,12-5.8,12-13S205.6,211.1,199,211.1z\"></path> <path d=\"M286,32.1c0,0,3-16,16-16s23,19,26,25s19,31,27,38c10,8,36,24,42,31c8,6,28,28,30,30s44,41,43,89s-37,113-59,112 c-14,0-16-20-16-20s38.5-47.5,0-104.5c-30-39-73.5-59-73.5-59v234c0,0,1,104-106,104c-17.4,0-31.9-4.3-43.7-10.8 c-5.3-2.9-34.4-20.3-40.3-55.2c-4.5-26.3,6.9-46.8,11-54c9.3-16.1,21.3-24.9,27.2-29.1c25.8-18.4,53.4-20,65.8-19.9c0,0,42-2,50,16 L286,32.1z\"></path> </svg>
+          </a>
+        </span>
+        <span class=\"icon-wrapper right pointer\">
+        </span>
+      </td>
+    </tr>`
+
+
+    if(arrayID != 0){
+      $('#songs').append(data);
+    }
+    else {
+      $('#songs').html(data);
+    }
+  });
+
 <% end %>
 
 $('#pagination').html("<%= j will_paginate(@songs) %>");
