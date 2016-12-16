@@ -3,8 +3,8 @@ class Home::SongsController < Home::ApplicationController
     @songs = Song.search(params[:search]).page(params[:page]).per_page(50)
     respond_to do |format|
       format.html
-      format.js   { render :file => "home/songs/ajax/search.js.erb" }
-      format.json { render :json => JSON.pretty_generate(@songs.map{ |s| export_hash(s) }) }
+      format.js   { render file: "home/songs/ajax/search.js.erb" }
+      format.json { render json: JSON.pretty_generate(Song.export) }
     end
   end
 end

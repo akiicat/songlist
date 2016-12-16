@@ -7,8 +7,8 @@ class Dashboard::SongsController < Dashboard::ApplicationController
     @songs = Song.search(params[:search]).page(params[:page]).per_page(50)
     respond_to do |format|
       format.html
-      format.js   { render :file => "dashboard/songs/ajax/search.js.erb" }
-      format.json { render :json => JSON.pretty_generate(@songs.map{ |s| export_hash(s) }) }
+      format.js   { render file: "dashboard/songs/ajax/search.js.erb" }
+      format.json { render json: JSON.pretty_generate(Song.export) }
       format.zip  { send_file SongsManager.zip, type: 'application/zip', disposition: 'attachment', filename: "songs.zip" }
     end
   end
