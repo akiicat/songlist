@@ -14,7 +14,7 @@ class Singer < ApplicationRecord
     repeat_singers.each do |singer|
       singer_ids = Singer.where(name: singer.name, name_translation: singer.name_translation).pluck(:id)
 
-      singers_ids[1..-1].each do |id|
+      singer_ids[1..-1].each do |id|
         Song.unscoped.where(  singer_id: id).update_all(  singer_id: singer_ids[0])
         Song.unscoped.where(composer_id: id).update_all(composer_id: singer_ids[0])
       end
