@@ -1,8 +1,47 @@
-<% if @songs.previous_page %>
-  $('#songs').append("<%= j render(partial: 'home/songs/show/search', collection: @songs, as: :song) %>");
-<% else %>
-  $('#songs').html("<%= j render(partial: 'home/songs/show/search', collection: @songs, as: :song) %>");
-<% end %>
+var json = jQuery.parseJSON("<%= raw(j render(text: @songs.render.to_json)) %>");
+
+$.each(json, function(arrayID,song) {
+  var data = `<tr class=\"tr-wrapper\">
+    <td>
+      <code>
+        ` + song.singer.name_with_translation + `
+      </code>
+    </td>
+    <td>
+      <code>
+        ` + song.title_with_translation + `
+        <span class=\"description\">` + song.composer.name_with_translation + `</span>
+      </code>
+    </td>
+    <td>
+      <span class=\"icon-wrapper right pointer\">
+        <svg class=\"octicon octicon-clippy icon\" data-clippy=\"` + song.name_all + `\" data-clippy-duplicate=\"true\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z\"></path></svg>
+      </span>
+      <span class=\"icon-wrapper right\">
+        <a target=\"_blank\" href=\"` + song.lyric_url + `\">`
+          + ((!song.lyric_url) ? "" : `<svg version=\"1.1\" id=\"lyric\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\"> <path d=\"M199,89.1H52c-6.6,0-12,5.8-12,13s5.4,13,12,13h147c6.6,0,12-5.8,12-13S205.6,89.1,199,89.1z\"></path> <path d=\"M199,150.1H52c-6.6,0-12,5.8-12,13s5.4,13,12,13h147c6.6,0,12-5.8,12-13S205.6,150.1,199,150.1z\"></path> <path d=\"M199,211.1H52c-6.6,0-12,5.8-12,13s5.4,13,12,13h147c6.6,0,12-5.8,12-13S205.6,211.1,199,211.1z\"></path> <path d=\"M286,32.1c0,0,3-16,16-16s23,19,26,25s19,31,27,38c10,8,36,24,42,31c8,6,28,28,30,30s44,41,43,89s-37,113-59,112 c-14,0-16-20-16-20s38.5-47.5,0-104.5c-30-39-73.5-59-73.5-59v234c0,0,1,104-106,104c-17.4,0-31.9-4.3-43.7-10.8 c-5.3-2.9-34.4-20.3-40.3-55.2c-4.5-26.3,6.9-46.8,11-54c9.3-16.1,21.3-24.9,27.2-29.1c25.8-18.4,53.4-20,65.8-19.9c0,0,42-2,50,16 L286,32.1z\"></path> </svg>`) + `
+        </a>
+      </span>
+      <span class=\"icon-wrapper right\">
+        <a target=\"_blank\" href=\"` + song.video_url + `\">`
+          + ((!song.video_url) ? "" : `<svg data-name="Layer 21" height="24" id="Layer_21" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M21.80731,7.805a2.79915,2.79915,0,0,0-2.54907-2.53906C17.69061,5.13586,15.36707,5,12.50012,5c-3.45251,0-6.05865.14105-7.74353.27332A2.79932,2.79932,0,0,0,2.1925,7.815C2.08936,8.90021,2,10.33344,2,12.0423c0,1.66632.08862,3.07422.19128,4.14594a2.79852,2.79852,0,0,0,2.56384,2.53833C6.43994,18.85883,9.04657,19,12.50012,19c2.86694,0,5.19049-.13586,6.75812-.266a2.799,2.799,0,0,0,2.54907-2.539C21.91052,15.11548,22,13.69189,22,12S21.91052,8.88452,21.80731,7.805ZM9.77594,14.93878V9.06122L15.574,12Z"></path></svg>`) + `
+        </a>
+      </span>
+    </td>
+  </tr>`
+
+  <% if @songs.previous_page %>
+    $('#songs').append(data);
+  <% else %>
+    if(arrayID != 0){
+      $('#songs').append(data);
+    }
+    else {
+      $('#songs').html(data);
+    }
+  <% end %>
+});
+
 
 $('#pagination').html("<%= j will_paginate(@songs) %>");
 $("#songs_count").html("<%= @songs.count %>");
