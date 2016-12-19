@@ -10,16 +10,6 @@
   </div>
 <% end %>
 
-<div class="field">
-  <div class="label">
-    <%= f.label "歌名：" %>
-  </div>
-  <div class="content input-half">
-    <%= f.text_field :title, class: "form-control input-lg", placeholder: "歌名" %> /
-    <%= f.text_field :title_translation, class: "form-control input-lg", placeholder: "翻譯" %>
-  </div>
-</div>
-
 <%= f.fields_for :singer do |ff| %>
   <div class="field">
     <div class="label">
@@ -31,6 +21,16 @@
     </div>
   </div>
 <% end %>
+
+<div class="field">
+  <div class="label">
+    <%= f.label "歌名：" %>
+  </div>
+  <div class="content input-half">
+    <%= f.text_field :title, class: "form-control input-lg", placeholder: "歌名" %> /
+    <%= f.text_field :title_translation, class: "form-control input-lg", placeholder: "翻譯" %>
+  </div>
+</div>
 
 <%= f.fields_for :composer do |ff| %>
   <div class="field">
