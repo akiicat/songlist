@@ -15,29 +15,29 @@
     </code>
   </td>
   <td>
-    <span class="icon-wrapper right pointer">
+    <span class="icon-wrapper right pointer" data-aria-label="刪除">
       <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
         <%= octicon "trashcan", class: "icon" %>
       <% end %>
     </span>
-    <span class="icon-wrapper right pointer">
+    <span class="icon-wrapper right pointer" data-aria-label="編輯">
       <%= link_to edit_dashboard_song_path(song) do %>
         <%= octicon "pencil", class: "icon" %>
       <% end %>
     </span>
-    <span class="icon-wrapper right pointer">
+    <span class="icon-wrapper right pointer" data-aria-label="複製歌名" data-tipsy-hint="已複製！">
       <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-duplicate": false %>
     </span>
     <span class="icon-wrapper right">
       <% unless song.lyric_url.blank? %>
-        <%= link_to song.lyric_url, target: "_blank" do %>
+        <%= link_to song.lyric_url, target: "_blank", "data-aria-label": "歌詞" do %>
           <%= svg "lyrics" %>
         <% end %>
       <% end %>
     </span>
     <span class="icon-wrapper right">
       <% unless song.video_url.blank? %>
-        <%= link_to song.video_url, target: "_blank" do %>
+        <%= link_to song.video_url, target: "_blank", "data-aria-label": "Youtube" do %>
           <%= svg "youtube" %>
         <% end %>
       <% end %>

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 // require turbolinks
+//= require tipsy
 //= require_tree .
 //= require sweetalert2.min
 //= require preloader
