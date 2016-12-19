@@ -153,3 +153,15 @@ header {
   width: 75%;
   margin: auto;
 }
+.content {
+  &.input-half {
+    input {
+      width: 40%;
+    }
+  }
+  &.input-full {
+    input {
+      width: 80%;
+    }
+  }
+}

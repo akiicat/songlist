@@ -14,7 +14,7 @@
   <div class="label">
     <%= f.label "歌名：" %>
   </div>
-  <div class="content">
+  <div class="content input-half">
     <%= f.text_field :title, class: "form-control input-lg", placeholder: "歌名" %> /
     <%= f.text_field :title_translation, class: "form-control input-lg", placeholder: "翻譯" %>
   </div>
@@ -25,7 +25,7 @@
     <div class="label">
       <%= ff.label "歌手：" %>
     </div>
-    <div class="content">
+    <div class="content input-half">
       <%= ff.text_field :name, class: "form-control input-lg", placeholder: "歌手" %> /
       <%= ff.text_field :name_translation, class: "form-control input-lg", placeholder: "翻譯" %>
     </div>
@@ -37,7 +37,7 @@
     <div class="label">
       <%= ff.label "作曲：" %>
     </div>
-    <div class="content">
+    <div class="content input-half">
       <%= ff.text_field :name, class: "form-control input-lg", placeholder: "作曲" %> /
       <%= ff.text_field :name_translation, class: "form-control input-lg", placeholder: "翻譯" %>
     </div>
@@ -48,7 +48,7 @@
   <div class="label">
     <%= f.label "補充：" %>
   </div>
-  <div class="content">
+  <div class="content input-full">
     <%= f.text_field :description, class: "form-control input-lg" %>
   </div>
 </div>
@@ -57,7 +57,7 @@
   <div class="label">
     <%= f.label "歌詞連結：" %>
   </div>
-  <div class="content">
+  <div class="content input-full">
     <%= f.text_field :lyric_url, class: "form-control input-lg" %>
   </div>
 </div>
@@ -66,7 +66,7 @@
   <div class="label">
     <%= f.label "Youtube連結：" %>
   </div>
-  <div class="content">
+  <div class="content input-full">
     <%= f.text_field :video_url, class: "form-control input-lg" %>
   </div>
 </div>
