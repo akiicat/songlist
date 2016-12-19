@@ -42,6 +42,9 @@ $.each(json, function(arrayID,song) {
   <% end %>
 });
 
+<% if @songs.count == 0 %>
+  $('#songs').html('');
+<% end %>
 
 $('#pagination').html("<%= j will_paginate(@songs) %>");
 $("#songs_count").html("<%= @songs.count %>");
