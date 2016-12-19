@@ -11450,7 +11450,148 @@ span#hold {
     background: #df2020;
   }
 }
-/* line 24, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 1, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy {
+  font-size: 10px;
+  position: absolute;
+  padding: 5px;
+  z-index: 100000;
+}
+
+/* line 2, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-inner {
+  background-color: #000;
+  color: #FFF;
+  max-width: 200px;
+  padding: 5px 8px 4px 8px;
+  text-align: center;
+}
+
+/* Rounded corners */
+/* line 5, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-inner {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+/* Uncomment for shadow */
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+/* line 10, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 5px dashed #000;
+}
+
+/* Rules to colour arrows */
+/* line 13, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-arrow-n {
+  border-bottom-color: #000;
+}
+
+/* line 14, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-arrow-s {
+  border-top-color: #000;
+}
+
+/* line 15, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-arrow-e {
+  border-left-color: #000;
+}
+
+/* line 16, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-arrow-w {
+  border-right-color: #000;
+}
+
+/* line 18, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-n .tipsy-arrow {
+  top: 0px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+/* line 19, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-nw .tipsy-arrow {
+  top: 0;
+  left: 10px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+/* line 20, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-ne .tipsy-arrow {
+  top: 0;
+  right: 10px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+/* line 21, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-s .tipsy-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+/* line 22, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-sw .tipsy-arrow {
+  bottom: 0;
+  left: 10px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+/* line 23, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-se .tipsy-arrow {
+  bottom: 0;
+  right: 10px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+/* line 24, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-e .tipsy-arrow {
+  right: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-left-style: solid;
+  border-right: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* line 25, /Users/akiicat/Github/leggy/vendor/assets/stylesheets/tipsy.css */
+.tipsy-w .tipsy-arrow {
+  left: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-right-style: solid;
+  border-left: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* line 25, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper {
   position: fixed;
   width: 100%;
@@ -11458,23 +11599,23 @@ span#hold {
   top: 0;
   margin: 0;
 }
-/* line 31, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 32, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container {
   padding: 10px 0;
 }
-/* line 33, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 34, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container .search-form {
   width: 300px;
   margin: 0 10px 0 0;
 }
-/* line 37, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 38, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container .search-btn {
   width: 75px;
   left: 0;
   right: 0;
   margin: 0 10px 0 0;
 }
-/* line 43, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 44, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .search-wrapper .container a {
   line-height: 34px;
   float: right;
@@ -11482,18 +11623,18 @@ span#hold {
   margin: 0 10px 0 0;
 }
 
-/* line 52, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 53, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .main {
   margin-top: 54px;
 }
 
-/* line 63, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 64, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
-/* line 68, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 69, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table th,
 .table td {
   text-align: left;
@@ -11501,94 +11642,94 @@ span#hold {
   vertical-align: top;
   border-top: 0px solid #ddd;
 }
-/* line 76, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 77, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table thead th {
   vertical-align: bottom;
   border-bottom: 0px solid #ddd;
 }
-/* line 81, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 82, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table tbody + tbody {
   border-top: 0px solid #ddd;
 }
-/* line 85, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 86, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table .table {
   background-color: transparent;
 }
 
-/* line 91, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 92, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
 
-/* line 96, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 97, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 a {
   color: black;
 }
-/* line 99, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 100, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 a .description {
   color: gray;
 }
-/* line 103, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 104, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 a:hover {
   color: #5a5a5a;
   text-decoration: none;
 }
-/* line 106, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 107, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 a:hover .description {
   color: #a8a8a8;
 }
 
-/* line 113, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 114, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper code {
   font-size: 14px;
 }
-/* line 117, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 118, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper .icon-wrapper {
   height: 22px;
   width: 22px;
   margin-left: 10px;
 }
-/* line 123, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 124, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper .icon {
   width: 100%;
   height: 100%;
 }
-/* line 128, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 129, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .tr-wrapper .right {
   float: right;
 }
 
-/* line 133, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 134, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .pointer {
   cursor: pointer;
 }
 
-/* line 137, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 138, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 header {
   margin-top: 20px;
 }
 
-/* line 140, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 141, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .field {
   margin-top: 20px;
 }
 
-/* line 143, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 144, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .actions {
   margin-top: 20px;
 }
 
-/* line 146, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 147, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .flash {
   margin-top: 20px;
 }
 
-/* line 149, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 150, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .pagination, .disable {
   display: none;
 }
 
-/* line 152, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
+/* line 153, /Users/akiicat/Github/leggy/app/assets/stylesheets/application.scss */
 .markdown-body {
   width: 75%;
   margin: auto;
