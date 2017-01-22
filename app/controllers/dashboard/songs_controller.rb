@@ -1,10 +1,12 @@
 class Dashboard::SongsController < Dashboard::ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_search, only: [:create, :update, :destroy]
 
   # GET /dashboard/songs
   # GET /dashboard/songs.json
   def index
-    @songs = Song.search(params[:search]).page(params[:page]).per_page(50)
+    @search = flash[:search] || params[:search]
+    @songs = Song.search(@search).page(params[:page]).per_page(50)
     respond_to do |format|
       format.html
       format.js   { render file: "dashboard/songs/ajax/search.js.erb" }
@@ -75,6 +77,9 @@ private
     @song = Song.find(params[:id])
   end
 
+  def set_search
+    flash[:search] = cookies[:search]
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def song_params

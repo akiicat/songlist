@@ -1,7 +1,10 @@
 function searching() {
   $('#songs_search').on('keyup', '#search', function() {
+    var key_word = $('#search').val();
+    history.pushState(null, null, '?search=' + key_word);
+    document.cookie = 'search=' + key_word + '; path=/';
+
     $.get($("#songs_search").attr("action"), $("#songs_search").serialize(), null, "script");
-    history.pushState(null, null, '?search=' + $('#search').val());
     return false;
   });
   var input = $('#search');
