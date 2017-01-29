@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * require_tree .
- * require_self
+ *= require_tree .
+ *= require_self
  */
 
 @import "primer";
@@ -21,147 +21,10 @@
 @import "preloader";
 @import "tipsy";
 
-.search-wrapper {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  top: 0;
-  margin: 0;
-
-  .container {
-    padding: 10px 0;
-    .search-form {
-      width: 300px;
-      margin: 0 10px 0 0;
-    }
-    .search-btn {
-      width: 75px;
-      left: 0;
-      right: 0;
-      margin: 0 10px 0 0;
-    }
-    a {
-      line-height: 34px;
-      float: right;
-      font-weight: 600;
-      margin: 0 10px 0 0;
-    }
-  }
-}
-
-.main {
-  margin-top: 54px;
-}
-
-$spacer: 20px;
-$body-bg: transparent;
-$table-cell-padding: 8px;
-$table-border-width: 0px;
-$table-border-color: #ddd;
-$table-bg-accent: #f9f9f9;
-
-.table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: $spacer;
-
-  th,
-  td {
-    text-align: left;
-    padding: $table-cell-padding;
-    vertical-align: top;
-    border-top: $table-border-width solid $table-border-color;
-  }
-
-  thead th {
-    vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
-  }
-
-  tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
-  }
-
-  .table {
-    background-color: $body-bg;
-  }
-}
-
-.table-striped {
-  tbody tr:nth-of-type(odd) {
-    background-color: $table-bg-accent;
-  }
-}
-
-a {
-  color: black;
-
-  .description {
-    color: gray;
-  }
-
-  &:hover {
-    color: black + 90;
-    text-decoration: none;
-    .description {
-      color: gray + 40;
-    }
-  }
-}
-
-.tr-wrapper {
-  code {
-    font-size: 14px;
-  }
-
-  .icon-wrapper {
-    height: 22px;
-    width: 22px;
-    margin-left: 10px;
-  }
-
-  .icon {
-    width: 100%;
-    height: 100%;
-  }
-
-  .right {
-    float: right;
-  }
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-header {
-  margin-top: 20px;
-}
-.field {
-  margin-top: 20px;
-}
-.actions {
-  margin-top: 20px;
-}
-.flash {
-  margin-top: 20px;
-}
-.pagination, .disable {
-  display: none;
-}
-.markdown-body {
-  width: 75%;
-  margin: auto;
-}
-.content {
-  &.input-half {
-    input {
-      width: 40%;
-    }
-  }
-  &.input-full {
-    input {
-      width: 80%;
-    }
-  }
-}
+@import "layout";
+@import "search";
+@import "table";
+@import "video";
+@import "readme";
+@import "form";
+@import "hover";

@@ -1,0 +1,18 @@
+a {
+  color: black;
+
+  .description {
+    color: gray;
+  }
+
+  &:hover {
+    color: black + 90;
+    text-decoration: none;
+    .description {
+      color: gray + 40;
+    }
+  }
+}
+.pointer {
+  cursor: pointer;
+}

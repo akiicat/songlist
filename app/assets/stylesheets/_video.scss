@@ -1,0 +1,13 @@
+.video-wrapper {
+  width: 100vw;
+  height: 480px;
+  background-color: black;
+  iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 854px;
+    height: 480px;
+  }
+}

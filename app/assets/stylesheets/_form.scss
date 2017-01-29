@@ -1,0 +1,18 @@
+.field {
+  margin-top: 20px;
+}
+.content {
+  &.input-half {
+    input {
+      width: 40%;
+    }
+  }
+  &.input-full {
+    input {
+      width: 80%;
+    }
+  }
+}
+.actions {
+  margin-top: 20px;
+}
