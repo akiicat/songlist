@@ -1,13 +1,24 @@
 .video-wrapper {
   width: 100vw;
-  height: 480px;
+  height: 720px;
   background-color: black;
   iframe {
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    width: 854px;
+    width: 1200px;
+    height: 720px;
+
+  }
+}
+
+@media screen and (max-height: 786px), screen and (max-width: 1200px) {
+  .video-wrapper {
     height: 480px;
+    iframe {
+      width: 854px;
+      height: 480px;
+    }
   }
 }
