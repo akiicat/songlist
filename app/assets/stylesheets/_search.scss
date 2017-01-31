@@ -6,23 +6,21 @@
   margin: 0;
   z-index: 10;
 
-  .container {
-    padding: 10px 0;
-    .search-form {
-      width: 300px;
-      margin: 0 10px 0 0;
-    }
-    .search-btn {
-      width: 75px;
-      left: 0;
-      right: 0;
-      margin: 0 10px 0 0;
-    }
-    a {
-      line-height: 34px;
-      float: right;
-      font-weight: 600;
-      margin: 0 10px 0 0;
-    }
+
+  .search-form {
+    width: 300px;
+    margin: 0 10px 0 0;
+  }
+  .search-btn {
+    width: 75px;
+    left: 0;
+    right: 0;
+    margin: 0 10px 0 0;
+  }
+  a {
+    line-height: 34px;
+    float: right;
+    font-weight: 600;
+    margin: 0 10px 0 0;
   }
 }

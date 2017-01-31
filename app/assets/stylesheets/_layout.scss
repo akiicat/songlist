@@ -7,3 +7,19 @@ header {
 .flash {
   margin-top: 20px;
 }
+.container {
+  width: 1200px;
+  padding: 10px 0;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 854px;
+  }
+}
