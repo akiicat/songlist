@@ -42,19 +42,27 @@ $table-bg-accent: #f9f9f9;
   code {
     font-size: 14px;
   }
+}
 
-  .icon-wrapper {
-    height: 22px;
-    width: 22px;
-    margin-left: 10px;
-  }
+@mixin square($side: 22px){
+  display: inline-block;
+  height: $side;
+  width: $side;
+}
 
-  .icon {
-    width: 100%;
-    height: 100%;
-  }
+.icon-wrapper {
+  @include square(22px);
+  margin: 0 5px;
+  cursor: pointer;
 
-  .right {
-    float: right;
+  &.medium, &.medium svg {
+    @include square(22px);
   }
+  &.large, &.large svg {
+    @include square(32px);
+  }
+}
+
+.right {
+  float: right;
 }
