@@ -8,34 +8,36 @@
   </td>
   <td>
     <code>
-      <%= link_to edit_dashboard_song_path(song) do %>
+      <%= link_to dashboard_song_path(song) do %>
         <%= song.title_with_translation %>
         <span class="description"><%= song.supplement %></span>
       <% end %>
     </code>
   </td>
   <td>
-    <span class="icon-wrapper right pointer" data-aria-label="刪除">
+    <%= hint_tag "刪除", nil, class: ["icon-wrapper", "medium", "right"] do %>
       <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
-        <%= octicon "trashcan", class: "icon" %>
+        <%= octicon "trashcan" %>
       <% end %>
-    </span>
-    <span class="icon-wrapper right pointer" data-aria-label="編輯">
+    <% end %>
+    <%= hint_tag "編輯", nil, class: ["icon-wrapper", "medium", "right"] do %>
       <%= link_to edit_dashboard_song_path(song) do %>
-        <%= octicon "pencil", class: "icon" %>
+        <%= octicon "pencil" %>
       <% end %>
-    </span>
-    <span class="icon-wrapper right pointer" data-aria-label="複製歌名" data-tipsy-hint="已複製！">
-      <%= octicon "clippy", class: "icon", "data-clippy": song.name_all, "data-clippy-duplicate": false %>
-    </span>
-    <span class="icon-wrapper right">
+    <% end %>
+    <%= hint_tag "複製歌名", "已複製！", class: ["icon-wrapper", "medium", "right"] do %>
+      <%= copy_tag song.name_all do %>
+        <%= octicon "clippy" %>
+      <% end %>
+    <% end %>
+    <span class="icon-wrapper medium right">
       <% unless song.lyric_url.blank? %>
         <%= link_to song.lyric_url, target: "_blank", "data-aria-label": "歌詞" do %>
           <%= svg "lyrics" %>
         <% end %>
       <% end %>
     </span>
-    <span class="icon-wrapper right">
+    <span class="icon-wrapper medium right">
       <% unless song.video_url.blank? %>
         <%= link_to song.video_url, target: "_blank", "data-aria-label": "YouTube" do %>
           <%= svg "youtube" %>

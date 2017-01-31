@@ -19,6 +19,14 @@
   <strong>Composer:</strong>
   <%= link_to @song.composer.name, dashboard_singer_path(@song.composer) if @song.composer %>
 </p>
+<h1>
+  <%= @song.name_all %>
+  <%= hint_tag "編輯", nil, class: ["icon-wrapper", "large"] do %>
+    <%= link_to edit_dashboard_song_path(@song) do %>
+      <%= octicon "pencil" %>
+    <% end %>
+  <% end %>
+</h1>
 
 <p>
   <strong>Title:</strong>
