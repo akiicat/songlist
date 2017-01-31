@@ -2,7 +2,6 @@
   <div class="video-wrapper">
     <% if @song.video_url =~ /youtube/ %>
       <iframe src="<%= @song.video_url.gsub("watch?v=", "v/") + "?autoplay=1" %>" frameborder="0" allowfullscreen></iframe>
-
     <% end %>
     <% if @song.video_url =~ /nicovideo/ %>
       <script src="<%= "http://ext.nicovideo.jp/thumb_watch/" + @song.video_url.split("/").last %>" type="text/javascript"></script>
@@ -10,15 +9,6 @@
   </div>
 <% end %>
 
-<p>
-  <strong>Singer:</strong>
-  <%= link_to @song.singer.name, dashboard_singer_path(@song.singer) if @song.singer %>
-</p>
-
-<p>
-  <strong>Composer:</strong>
-  <%= link_to @song.composer.name, dashboard_singer_path(@song.composer) if @song.composer %>
-</p>
 <h1>
   <%= @song.name_all %>
   <%= hint_tag "編輯", nil, class: ["icon-wrapper", "large"] do %>
@@ -29,26 +19,26 @@
 </h1>
 
 <p>
-  <strong>Title:</strong>
-  <%= @song.title %>
+  <strong>歌手:</strong>
+  <%= link_to @song.singer.name_with_translation, dashboard_singer_path(@song.singer) if @song.singer %>
 </p>
 
 <p>
-  <strong>Title translation:</strong>
-  <%= @song.title_translation %>
+  <strong>作曲:</strong>
+  <%= link_to @song.composer.name_with_translation, dashboard_singer_path(@song.composer) if @song.composer %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>補充:</strong>
   <%= @song.description %>
 </p>
 
 <p>
-  <strong>Lyric url:</strong>
+  <strong>歌詞連結:</strong>
   <%= @song.lyric_url %>
 </p>
 
 <p>
-  <strong>Video url:</strong>
+  <strong>影片連結:</strong>
   <%= @song.video_url %>
 </p>
