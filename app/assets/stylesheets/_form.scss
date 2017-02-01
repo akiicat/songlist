@@ -2,15 +2,13 @@
   margin-top: 20px;
 }
 .content {
-  &.input-half {
-    input {
-      width: 40%;
-    }
+  display: flex;
+  & > input, & > textarea {
+    flex: 1 1 auto;
   }
-  &.input-full {
-    input {
-      width: 80%;
-    }
+  & > span {
+    margin: 0 4px;
+    line-height: 31px;
   }
 }
 .actions {
