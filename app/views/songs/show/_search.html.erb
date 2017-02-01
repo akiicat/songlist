@@ -16,14 +16,10 @@
   </td>
   <td>
     <%= hint_tag "刪除", nil, class: ["icon-wrapper", "medium", "right"] do %>
-      <%= link_to dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } do %>
-        <%= octicon "trashcan" %>
-      <% end %>
+      <%= link_to octicon("trashcan"), dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } %>
     <% end %>
     <%= hint_tag "編輯", nil, class: ["icon-wrapper", "medium", "right"] do %>
-      <%= link_to edit_dashboard_song_path(song) do %>
-        <%= octicon "pencil" %>
-      <% end %>
+      <%= link_to octicon("pencil"), edit_dashboard_song_path(song) %>
     <% end %>
     <%= hint_tag "複製歌名", "已複製！", class: ["icon-wrapper", "medium", "right"] do %>
       <%= copy_tag song.name_all do %>
@@ -32,16 +28,12 @@
     <% end %>
     <span class="icon-wrapper medium right">
       <% unless song.lyric_url.blank? %>
-        <%= link_to song.lyric_url, target: "_blank", "data-aria-label": "歌詞" do %>
-          <%= svg "lyrics" %>
-        <% end %>
+        <%= link_to svg("lyrics"), song.lyric_url, target: "_blank", "data-aria-label": "歌詞" %>
       <% end %>
     </span>
     <span class="icon-wrapper medium right">
       <% unless song.video_url.blank? %>
-        <%= link_to song.video_url, target: "_blank", "data-aria-label": "YouTube" do %>
-          <%= svg "youtube" %>
-        <% end %>
+        <%= link_to svg("youtube"), song.video_url, target: "_blank", "data-aria-label": "YouTube" %>
       <% end %>
     </span>
   </td>

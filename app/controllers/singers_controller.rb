@@ -1,4 +1,4 @@
-class Dashboard::SingersController < Dashboard::ApplicationController
+class SingersController < ApplicationController
   before_action :set_singer, only: [:show, :edit, :update, :destroy]
 
   # GET /dashboard/singers

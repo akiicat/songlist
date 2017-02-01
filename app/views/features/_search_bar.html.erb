@@ -1,0 +1,19 @@
+<div class="search-wrapper bg-gray">
+  <div class="container">
+    <%= form_tag dashboard_songs_path, method: :get, id: "songs_search" do %>
+      <%= text_field_tag :search, params[:search], placeholder: "請輸入歌名或歌手", class: "form-control input-lg", value: @search %>
+      <%= button_tag(type: "submit", class: "btn") do %>
+        搜尋
+      <% end %>
+    <% end %>
+
+    <% if dashboard? %>
+      <%= link_to octicon("globe")    + " 公開"   , root_path %>
+      <%= link_to octicon("package")  + " 匯出"   , dashboard_songs_path(format: 'zip') %>
+      <%= link_to octicon("question") + " 說明"   , '#readme', id: 'readme' %>
+      <%= link_to octicon("plus")     + " 新增歌曲", new_dashboard_song_path %>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'features/readme' %>

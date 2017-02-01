@@ -1,4 +1,4 @@
-class Dashboard::SongsController < Dashboard::ApplicationController
+class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   before_action :set_search, only: [:create, :update, :destroy]
 
