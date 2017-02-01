@@ -11,9 +11,9 @@
 
 <h1>
   <%= @song.name_all %>
-  <%= hint_tag "編輯", nil, class: ["icon-wrapper", "large"] do %>
-    <%= link_to edit_dashboard_song_path(@song) do %>
-      <%= octicon "pencil" %>
+  <% if dashboard? %>
+    <%= hint_tag "編輯", nil, class: "icon-wrapper large" do %>
+      <%= link_to octicon("pencil"), edit_dashboard_song_path(@song) %>
     <% end %>
   <% end %>
 </h1>

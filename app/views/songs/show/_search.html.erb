@@ -1,30 +1,30 @@
 <tr class="tr-wrapper">
   <td>
     <code>
-      <%= link_to edit_dashboard_singer_path(song.singer) do %>
+      <%= link_to dashboard? ? dashboard_singer_path(song.singer) : singer_path(song.singer) do %>
         <%= song.singer.name_with_translation %>
       <% end %>
     </code>
   </td>
   <td>
     <code>
-      <%= link_to dashboard_song_path(song) do %>
+      <%= link_to dashboard? ? dashboard_song_path(song) : song_path(song) do %>
         <%= song.title_with_translation %>
         <span class="description"><%= song.supplement %></span>
       <% end %>
     </code>
   </td>
   <td>
-    <%= hint_tag "刪除", nil, class: ["icon-wrapper", "medium", "right"] do %>
-      <%= link_to octicon("trashcan"), dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } %>
-    <% end %>
-    <%= hint_tag "編輯", nil, class: ["icon-wrapper", "medium", "right"] do %>
-      <%= link_to octicon("pencil"), edit_dashboard_song_path(song) %>
-    <% end %>
-    <%= hint_tag "複製歌名", "已複製！", class: ["icon-wrapper", "medium", "right"] do %>
-      <%= copy_tag song.name_all do %>
-        <%= octicon "clippy" %>
+    <% if dashboard? %>
+      <%= hint_tag "刪除", nil, class: "icon-wrapper medium right" do %>
+        <%= link_to octicon("trashcan"), dashboard_song_path(song), method: :delete, data: { confirm: '你沒有辦法復原刪除後的歌曲！' } %>
       <% end %>
+      <%= hint_tag "編輯", nil, class: "icon-wrapper medium right" do %>
+        <%= link_to octicon("pencil"), edit_dashboard_song_path(song) %>
+      <% end %>
+    <% end %>
+    <%= hint_tag "複製歌名", "已複製！", class: "icon-wrapper medium right" do %>
+      <%= copy_tag octicon("clippy"), song.name_all %>
     <% end %>
     <span class="icon-wrapper medium right">
       <% unless song.lyric_url.blank? %>
