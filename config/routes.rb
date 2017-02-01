@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "home/songs#index"
   scope module: :home do
-    resources :songs, only: [:index]
+    resources :songs, only: [:index, :show]
   end
   namespace :dashboard do
     root to: "songs#index"

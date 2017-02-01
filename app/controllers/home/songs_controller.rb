@@ -7,4 +7,7 @@ class Home::SongsController < Home::ApplicationController
       format.json { render json: JSON.pretty_generate(Song.export) }
     end
   end
+
+  def show
+  end
 end

@@ -74,6 +74,15 @@
   </div>
 </div>
 
+<div class="field">
+  <div class="label">
+    <%= f.label "歌詞：" %>
+  </div>
+  <div class="content">
+    <%= f.text_area :lyric, class: "form-control input-lg" %>
+  </div>
+</div>
+
 <div class="actions">
   <%= f.submit '更新歌曲', :class => "btn btn-primary" %>
 </div>
