@@ -53,13 +53,15 @@ $table-bg-accent: #f9f9f9;
 .icon-wrapper {
   @include square(22px);
   margin: 0 5px;
-  cursor: pointer;
 
   &.medium, &.medium svg {
     @include square(22px);
   }
   &.large, &.large svg {
     @include square(32px);
+  }
+  svg {
+    cursor: pointer;
   }
 }
 
