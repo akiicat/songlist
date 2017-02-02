@@ -1,6 +1,7 @@
 <div class="search-wrapper bg-gray">
   <div class="container">
-    <%= form_tag dashboard_songs_path, method: :get, id: "songs_search" do %>
+    <% url = dashboard? ? dashboard_songs_path : songs_path %>
+    <%= form_tag url, method: :get, id: "songs_search" do %>
       <%= text_field_tag :search, params[:search], placeholder: "請輸入歌名或歌手", class: "form-control input-lg", value: @search %>
       <%= button_tag(type: "submit", class: "btn") do %>
         搜尋

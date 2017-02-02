@@ -4,31 +4,32 @@ $.each(json, function(arrayID,song) {
   var data = `<tr class=\"tr-wrapper\">
     <td>
       <code>
-        <a href=\"/dashboard/singers/` + song.singer_id + `/edit\">
-          ` + song.singer.name_with_translation + `
-        </a>
+        <a href=\"<%= dashboard? ? "/dashboard" : "" %>/singers/` + song.singer_id + `\">` +
+          song.singer.name_with_translation +
+        `</a>
       </code>
     </td>
     <td>
       <code>
-        <a href=\"/dashboard/songs/` + song.id + `/edit\">
-          ` + song.title_with_translation + `
-          <span class=\"description\">` + song.supplement + `</span>
+        <a href=\"<%= dashboard? ? "/dashboard" : "" %>/songs/` + song.id + `\">` +
+          song.title_with_translation + `<span class=\"description\">` + song.supplement + `</span>
         </a>
       </code>
     </td>
-    <td>
-      <span class=\"icon-wrapper right pointer\" data-aria-label="刪除">
-        <a data-confirm=\"你沒有辦法復原刪除後的歌曲！\" rel=\"nofollow\" data-method=\"delete\" href=\"/dashboard/songs/` + song.id + `\">
-          <svg class=\"octicon octicon-trashcan icon\" viewBox=\"0 0 12 16\" version=\"1.1\" width=\"12\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z\"></path></svg>
-        </a>
-      </span>
-      <span class=\"icon-wrapper right pointer\">
-        <a href=\"/dashboard/songs/` + song.id + `/edit\" data-aria-label="編輯">
-          <svg class=\"octicon octicon-pencil icon\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z\"></path></svg>
-        </a>
-      </span>
-      <span class=\"icon-wrapper right pointer\" data-aria-label=\"複製歌名\" data-tipsy-hint=\"已複製！\">
+    <td>` +
+      <% if dashboard? %>
+        `<span class=\"icon-wrapper right medium\" data-aria-label="刪除">
+          <a data-confirm=\"你沒有辦法復原刪除後的歌曲！\" rel=\"nofollow\" data-method=\"delete\" href=\"/dashboard/songs/` + song.id + `\">
+            <svg class=\"octicon octicon-trashcan icon\" viewBox=\"0 0 12 16\" version=\"1.1\" width=\"12\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z\"></path></svg>
+          </a>
+        </span>
+        <span class=\"icon-wrapper right medium\">
+          <a href=\"/dashboard/songs/` + song.id + `/edit\" data-aria-label="編輯">
+            <svg class=\"octicon octicon-pencil icon\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z\"></path></svg>
+          </a>
+        </span>` +
+      <% end %>
+      `<span class=\"icon-wrapper right medium\" data-aria-label=\"複製歌名\" data-tipsy-hint=\"已複製！\">
         <svg class=\"octicon octicon-clippy icon\" data-clippy=\"` + song.name_all + `\" data-clippy-duplicate=\"false\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z\"></path></svg>
       </span>
       <span class=\"icon-wrapper right\">
