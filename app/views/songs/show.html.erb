@@ -1,7 +1,7 @@
 <% content_for :video do %>
   <div class="video-wrapper">
     <% if @song.video_url =~ /youtube/ %>
-      <iframe src="<%= @song.video_url.gsub("watch?v=", "v/") + "?autoplay=1" %>" frameborder="0" allowfullscreen></iframe>
+      <iframe src="<%= @song.video_url.gsub("watch?v=", "v/") %>" frameborder="0" allowfullscreen></iframe>
     <% end %>
     <% if @song.video_url =~ /nicovideo/ %>
       <script src="<%= "http://ext.nicovideo.jp/thumb_watch/" + @song.video_url.split("/").last %>" type="text/javascript"></script>
