@@ -17,25 +17,25 @@ ActiveRecord::Schema.define(version: 20170131101513) do
   enable_extension "uuid-ossp"
 
   create_table "singers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string   "name"
-    t.string   "name_translation"
-    t.integer  "count_of_singer_songs",   default: 0
-    t.integer  "count_of_composer_songs", default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string "name"
+    t.string "name_translation"
+    t.integer "count_of_singer_songs", default: 0
+    t.integer "count_of_composer_songs", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "songs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid     "singer_id"
-    t.uuid     "composer_id"
-    t.string   "title"
-    t.string   "title_translation"
-    t.string   "description"
-    t.string   "lyric_url"
-    t.string   "video_url"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.text     "lyric"
+    t.uuid "singer_id"
+    t.uuid "composer_id"
+    t.string "title"
+    t.string "title_translation"
+    t.string "description"
+    t.string "lyric_url"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "lyric"
   end
 
 end
