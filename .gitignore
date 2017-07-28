@@ -43,4 +43,6 @@ bower.json
 
 # mac
 .DS_Store
-*.keep
+
+# vim
+*.swp
