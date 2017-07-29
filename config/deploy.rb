@@ -34,7 +34,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 # deploy.rb or stage file (staging.rb, production.rb or else)
 set :rvm_type, :user                     # Defaults to: :auto
-set :rvm_ruby_version, 'default'         # Defaults to: 'default'
+set :rvm_ruby_version, '2.4.1'           # Defaults to: 'default'
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
