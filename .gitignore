@@ -46,3 +46,7 @@ bower.json
 
 # vim
 *.swp
+
+# capistrano
+*.production.yml
+*.staging.yml
