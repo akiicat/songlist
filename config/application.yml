@@ -7,10 +7,6 @@ development:
 test:
   <<: *default
 
-staging:
-  <<: *default
-  secret_key_base:
-
 production:
   <<: *default
   secret_key_base:
