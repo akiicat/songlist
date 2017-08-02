@@ -1,0 +1,18 @@
+default: &default
+  lang: zh_TW.UTF-8
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+  secret_key_base:
+
+production:
+  <<: *default
+  secret_key_base:
+  smart_look_key:
+

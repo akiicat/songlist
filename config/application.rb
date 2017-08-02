@@ -11,5 +11,13 @@ module Leggy
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.before_configuration do
+      env_file = Rails.root.join("config", 'application.yml').to_s
+      if File.exists? env_file
+        YAML.load_file(env_file)[Rails.env].each do |key, value|
+          ENV[key] = value
+        end
+      end
+    end
   end
 end

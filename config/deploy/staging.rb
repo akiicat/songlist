@@ -19,9 +19,9 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w{aaaa1379@songlist.akiicat.com}
-role :web, %w{aaaa1379@songlist.akiicat.com}
-role :db,  %w{aaaa1379@songlist.akiicat.com}
+role :app, %w{deploy@songlist.akiicat.com}
+role :web, %w{deploy@songlist.akiicat.com}
+role :db,  %w{deploy@songlist.akiicat.com}
 
 
 # Configuration
@@ -31,7 +31,7 @@ role :db,  %w{aaaa1379@songlist.akiicat.com}
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-set :deploy_to, '/home/aaaa1379/leggy-stg'
+set :deploy_to, '/home/deploy/leggy-stg'
 
 
 # Custom SSH Options
@@ -62,12 +62,12 @@ set :deploy_to, '/home/aaaa1379/leggy-stg'
 #   }
 
 server 'songlist.akiicat.com',
-  user: 'aaaa1379',
+  user: 'deploy',
   roles: %w{web app},
   ssh_options: {
-    user: 'aaaa1379', # overrides user setting above
-    keys: %w(/home/aaaa1379/.ssh/authorized_keys),
-    forward_agent: false,
+    user: 'deploy', # overrides user setting above
+    keys: %w(/home/deploy/.ssh/authorized_keys),
+    forward_agent: true,
     auth_methods: %w(publickey password)
     # password: 'please use keys'
   }
