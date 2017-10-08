@@ -85,6 +85,7 @@ private
   def song_params
     args = params.require(:song)
                  .permit(:title, :title_translation, :description, :lyric_url, :video_url, :lyric)
+                 .to_h
                  .map { |k, v| [k, v.to_s.strip] }
                  .to_h
 
