@@ -1,4 +1,4 @@
-var json = jQuery.parseJSON("<%= raw(j render(text: @songs.render.to_json)) %>");
+var json = jQuery.parseJSON("<%= raw(j @songs.render.to_json) %>");
 
 $.each(json, function(arrayID,song) {
   var data = `<tr class=\"tr-wrapper\">
