@@ -71,6 +71,7 @@ class SingersController < ApplicationController
     def singer_params
       params.require(:singer)
             .permit(:name, :name_translation)
+            .to_h
             .map { |k, v| [k, v.to_s.strip] }
             .to_h
     end
